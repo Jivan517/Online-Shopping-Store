@@ -21,5 +21,7 @@ public interface BookDao extends JpaRepository<Book,Long>{
 	List<Book> findByPublisher(String publisher);
 	
 	List<Book> findByRating(String rating);*/
+	
+	
 
 }
