@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Orderline {
@@ -19,5 +20,9 @@ public class Orderline {
 	@ManyToOne()
 	@JoinColumn(name = "orderId")
 	private Order order;
+	
+	@ManyToOne
+	@JoinColumn(name = "bookId")
+	private Book book;
 	
 }
