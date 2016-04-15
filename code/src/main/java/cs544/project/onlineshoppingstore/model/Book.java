@@ -22,7 +22,8 @@ public class Book {
 	private String isbn;
 	private String title;
 	private String edition;
-	private float price;
+	private double price;
+	private int quantity;
 	@Lob
 	private Byte[] cover;
 	private String description;	
@@ -35,11 +36,15 @@ public class Book {
 	private List<Author> authorslist = new ArrayList<Author>();
 	
 	@ManyToOne
-	@JoinColumn(name="publisherid")
+	@JoinColumn(name="publisherId")
 	private Publisher publisher;
 	
 	@OneToMany(mappedBy="book")
 	private List<Review> reviews = new ArrayList<Review>();
+	
+	@ManyToOne
+	@JoinColumn(name="orderlineId")
+	private Orderline orderline;
 	
 
 }

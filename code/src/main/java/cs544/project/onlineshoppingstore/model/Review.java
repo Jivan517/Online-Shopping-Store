@@ -11,14 +11,17 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Review {
 	@Id @GeneratedValue
-	private long id;
-	
+	private long id;	
 	private String reviewid;
 	private String review;
 	@Enumerated(EnumType.STRING)
-	private BookRating rating;
+	private BookRating rating;	
 	@ManyToOne
 	@JoinColumn(name="isbn")
 	private Book book;
+	
+	@ManyToOne
+	@JoinColumn(name="customerId")
+	private Customer customer;
 
 }
