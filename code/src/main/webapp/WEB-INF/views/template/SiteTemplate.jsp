@@ -6,34 +6,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Namaste | Online Shopping Store</title>
+<title>AJM - Online Book Store</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="resources/css/screen.css" type="text/css"
-	media="screen, projection"></link>
-<link rel="stylesheet" href="resources/css/print.css" type="text/css"
-	media="print"></link>
+<!-- <link rel="stylesheet" href="resources/css/screen.css" type="text/css" -->
+<!-- 	media="screen, projection"></link> -->
+<!-- <link rel="stylesheet" href="resources/css/print.css" type="text/css" -->
+<!-- 	media="print"></link> -->
 <link href="favicon.ico" rel="icon" type="image/x-icon" />
 <style>
-body {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	background-color: #DFDFDF;
-}
+
 </style>
 </head>
 <body>
-	<div class="container"
-		style="border: #C1C1C1 solid 1px; border-radius: 10px;">
+	<div class="container-fluid" style="border: #C1C1C1 solid 1px; border-radius: 10px; margin:5px;">
 		<!-- Header -->
 		<tiles:insertAttribute name="header" />
 		<!-- Menu Page -->
-		<div class="span-5  border"
-			style="height: 400px; background-color: #FCFCFC;">
+		<div class="col-md-12" style="background-color: #FCFCFC;">
 			<tiles:insertAttribute name="menu" />
 		</div>
 		<!-- Body Page -->
-		<div class="span-19 last">
+		<div class="col-md-12" style="height:500px;">
 			<tiles:insertAttribute name="body" />
 		</div>
 		<!-- Footer Page -->

@@ -2,11 +2,11 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Welcome | Online Shopping Store</title>
+	<title>Welcome | Online Book Store</title>
 </head>
 <body>
 <h1>
-	Welcome to Namaste - Online Shopping Store 
+	AJM - Online Book Store
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
