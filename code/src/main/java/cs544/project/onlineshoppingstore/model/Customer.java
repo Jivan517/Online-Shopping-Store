@@ -19,4 +19,7 @@ public class Customer extends ACLUser{
 	
 	@OneToOne(mappedBy="customer")
 	private BilingAddress bilingAdrress;
+	
+	@OneToOne(mappedBy="customer")
+	private Order order;
 }

@@ -12,7 +12,9 @@ public class Admin extends ACLUser{
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	
 	private String name;
+	
 	@Email
 	private String email;
 
