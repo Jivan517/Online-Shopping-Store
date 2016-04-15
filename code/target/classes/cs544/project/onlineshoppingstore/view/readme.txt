@@ -1,0 +1,1 @@
+Any viewmodel classes that will be used in Views.
