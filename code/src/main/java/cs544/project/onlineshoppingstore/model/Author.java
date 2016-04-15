@@ -19,8 +19,8 @@ public class Author {
 	private String lastName;
 	private Date dob;
 	
-	@ManyToMany(mappedBy="authorslist")
-	private List<Book> bookslist = new ArrayList<Book>();
+	@ManyToMany(mappedBy="authors")
+	private List<Book> books = new ArrayList<Book>();
 	
 
 }

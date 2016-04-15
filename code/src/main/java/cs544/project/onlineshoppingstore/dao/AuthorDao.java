@@ -1,5 +1,6 @@
 package cs544.project.onlineshoppingstore.dao;
 
-public interface AuthorDao {
 
+
+public interface AuthorDao {
 }

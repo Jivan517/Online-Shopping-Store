@@ -27,13 +27,13 @@ public class Book {
 	@Lob
 	private Byte[] cover;
 	private String description;	
-	private BookType booktype;
-	private BookCategory bookcategory;
+	private BookType bookType;
+	private BookCategory bookCategory;
 	
 	@ManyToMany
-	@JoinTable(name="BOOK_AUTHOR", joinColumns = @JoinColumn(name="isbn"),
-	inverseJoinColumns = @JoinColumn(name="authorid"))	
-	private List<Author> authorslist = new ArrayList<Author>();
+	@JoinTable(name="BookAuthor", joinColumns = @JoinColumn(name="bookId"),
+	inverseJoinColumns = @JoinColumn(name="authorId"))	
+	private List<Author> authors = new ArrayList<Author>();
 	
 	@ManyToOne
 	@JoinColumn(name="publisherId")
