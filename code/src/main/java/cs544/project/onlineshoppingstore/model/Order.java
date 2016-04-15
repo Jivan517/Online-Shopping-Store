@@ -1,6 +1,8 @@
 package cs544.project.onlineshoppingstore.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -17,5 +19,10 @@ public class Order {
 	private OrderStatus orderStatus;
 	private double total;
 	private int totalQuantity;
+	
+	@OneToMany(mappedBy = "order")
+	private List<Orderline> orderlines = new ArrayList<>();
+	
+	
 	
 }

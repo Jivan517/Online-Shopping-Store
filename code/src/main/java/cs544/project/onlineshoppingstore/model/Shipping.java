@@ -6,6 +6,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Shipping {
@@ -17,5 +20,9 @@ public class Shipping {
 	private ShippingType shippingType;
 	
 	private double shippingCharge;
+	
+	@OneToOne()
+	@JoinColumn(name ="orderId")
+	private Order order;
 	
 }
