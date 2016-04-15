@@ -13,4 +13,5 @@ public class BilingAddress extends Address{
 	@OneToOne
 	@JoinColumn(name="customerId")
 	private Customer customer;
+	
 }

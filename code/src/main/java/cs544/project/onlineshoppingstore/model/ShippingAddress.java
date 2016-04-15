@@ -9,8 +9,13 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class ShippingAddress extends Address{
-	
+
+
 	@OneToOne
 	@JoinColumn(name="customerId")
 	private Customer customer;
+	
+	@OneToOne(mappedBy="shippingAddress")
+	private Order order;
+	
 }

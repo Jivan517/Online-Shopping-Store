@@ -12,8 +12,9 @@ import org.hibernate.validator.constraints.Email;
 @Entity
 
 public class Admin extends ACLUser{
-	
+
 	private String name;
+	
 	@Email
 	private String email;
 

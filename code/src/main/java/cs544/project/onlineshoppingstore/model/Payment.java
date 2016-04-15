@@ -25,4 +25,8 @@ public class Payment {
 	@JoinColumn(name = "orderId")
 	private Order order;
 	
+	@OneToOne
+	@JoinColumn(name = "bilingAddressId")
+	private BilingAddress bilingAddress;
+	
 }
