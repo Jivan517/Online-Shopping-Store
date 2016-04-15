@@ -48,4 +48,14 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.findByOrderStatus(orderStatus);
 	}
 
+	@Override
+	public Order get(long orderId) {
+		return orderDao.findOne(orderId);
+	}
+
+	@Override
+	public List<Order> getAll() {
+		return orderDao.findAll();
+	}
+
 }

@@ -8,7 +8,8 @@ import cs544.project.onlineshoppingstore.model.OrderStatus;
 
 public interface OrderService {
 
-	
+	Order get(long orderId);
+	List<Order> getAll();
 	void create(Order order);
 	void update(long id, Order updatedOrder);
 	void delete(long orderId);
