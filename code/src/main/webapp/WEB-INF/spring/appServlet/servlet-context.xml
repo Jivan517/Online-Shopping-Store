@@ -28,7 +28,7 @@
 	</beans:bean>
 	
 	
-	<context:component-scan base-package="cs544.project.onlineshoppingstore" />
+	<context:component-scan base-package="cs544.project.onlineshoppingstore.controller" />
 	<annotation-driven/>
 	<default-servlet-handler/>
 	

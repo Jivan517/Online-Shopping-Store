@@ -1,4 +1,4 @@
-package cs544.project.onlineshoppingstore;
+package cs544.project.onlineshoppingstore.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
