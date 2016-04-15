@@ -9,9 +9,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class ShippingAddress extends Address{
-
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	
 	@OneToOne
 	@JoinColumn(name="customerId")
 	private Customer customer;

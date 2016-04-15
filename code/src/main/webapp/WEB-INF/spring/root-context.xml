@@ -1,29 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" 
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/tx
     http://www.springframework.org/schema/tx/spring-tx.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/data/repository
+    http://www.springframework.org/schema/data/repository/spring-repository.xsd
+    http://www.springframework.org/schema/data/jpa
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<tx:annotation-driven/>
+	<tx:annotation-driven transaction-manager="transactionManager" />
 	<context:property-placeholder location="classpath:local.properties" />
 	<context:annotation-config/>
+	<jpa:repositories base-package="cs544.project.onlineshoppingstore.dao"></jpa:repositories>
 	
 	<bean id="propertyPlaceHolderConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"></bean>
 	
-	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory"/>
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory">
 		</property>
+	</bean>
+
+	<bean id="hibernateJpaVendorAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+	</bean>
+	
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter">
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="connection.pool.size">${connection.pool.size}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="use_sql_comments">${use_sql_comments}</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="cs544.project.onlineshoppingstore.model" />
 	</bean>
 	
 	<bean id = "dataSource" class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -33,25 +61,6 @@
 		<property name = "password" value = "${db.password}"></property>
 	</bean>
 	
-	<bean id = "sessionFactory" class = "org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref = "dataSource"></property>
-		<property name="hibernateProperties" ref = "hibernateProperties"></property>
-		<property name="annotatedClasses">
-			<list>
-				
-			</list>
-		
-		</property>
-	</bean>
-	<bean id = "hibernateProperties" class = "org.springframework.beans.factory.config.PropertiesFactoryBean">
-	<property name="properties">
-		<props>
-			<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
-			<prop key="hibernate.dialect">${hibernate.dialect}</prop>
-			<prop key = "connection.pool.size">${connection.pool.size}</prop>
-			<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
-			<prop key="use_sql_comments">${use_sql_comments}</prop>
-		</props>
-	</property>
-	</bean>
+	
+	
 </beans>

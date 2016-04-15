@@ -1,5 +1,7 @@
 package cs544.project.onlineshoppingstore.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,7 +17,7 @@ public class Payment {
 	private long id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private double paymentDate;
+	private Date paymentDate;
 	
 	private String details;
 	

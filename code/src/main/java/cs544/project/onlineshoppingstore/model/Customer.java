@@ -8,9 +8,6 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Customer extends ACLUser{
-
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
 	
 	private String name;
 	
