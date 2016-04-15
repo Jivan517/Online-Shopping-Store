@@ -42,9 +42,8 @@ public class Book {
 	@OneToMany(mappedBy="book")
 	private List<Review> reviews = new ArrayList<Review>();
 	
-	@ManyToOne
-	@JoinColumn(name="orderlineId")
-	private Orderline orderline;
+	@OneToMany(mappedBy="book")
+	private List<Orderline>  orderlines;
 	
 
 }
