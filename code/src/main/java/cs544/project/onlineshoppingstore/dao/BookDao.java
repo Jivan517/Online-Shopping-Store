@@ -12,7 +12,7 @@ public interface BookDao extends JpaRepository<Book,Long>{
 	
 	List<Book> findByIsbn(String isbn); 
 	
-	List<Book> findById(String isbn);
+	List<Book> findById(long id);
 	
 	/*List<Book> findByAuthor(String author);
 	
