@@ -9,6 +9,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "BookOrder")
 public class Order {
 
 	@Id @GeneratedValue

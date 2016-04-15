@@ -3,6 +3,7 @@ package cs544.project.onlineshoppingstore.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,6 +11,7 @@ import cs544.project.onlineshoppingstore.dao.BillingAddressDao;
 import cs544.project.onlineshoppingstore.model.BilingAddress;
 
 @Transactional(propagation = Propagation.REQUIRED)
+@Component
 public class BilingAddressServiceImpl implements BilingAddressService{
 
 	private BillingAddressDao billingAddressDao;

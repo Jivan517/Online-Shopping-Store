@@ -3,6 +3,7 @@ package cs544.project.onlineshoppingstore.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,6 +11,7 @@ import cs544.project.onlineshoppingstore.dao.CustomerDao;
 import cs544.project.onlineshoppingstore.model.Customer;
 
 @Transactional(propagation = Propagation.REQUIRED)
+@Component
 public class CustomerServiceImpl implements CustomerService{
 
 	private CustomerDao customerDao;

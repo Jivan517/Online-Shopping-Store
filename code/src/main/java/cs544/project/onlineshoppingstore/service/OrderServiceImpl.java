@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,7 @@ import cs544.project.onlineshoppingstore.model.Order;
 import cs544.project.onlineshoppingstore.model.OrderStatus;
 
 @Transactional(propagation = Propagation.REQUIRED)
+@Component
 public class OrderServiceImpl implements OrderService {
 
 	private OrderDao orderDao;

@@ -3,6 +3,7 @@ package cs544.project.onlineshoppingstore.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import cs544.project.onlineshoppingstore.model.Shipping;
 import cs544.project.onlineshoppingstore.model.ShippingType;
 
 @Transactional(propagation = Propagation.REQUIRED)
+@Component
 public class ShippingServiceImpl implements ShippingService {
 
 	private ShippingDao shippingDao;
