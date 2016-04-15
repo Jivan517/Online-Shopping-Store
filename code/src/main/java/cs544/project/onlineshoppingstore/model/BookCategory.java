@@ -1,0 +1,8 @@
+package cs544.project.onlineshoppingstore.model;
+
+public enum BookCategory {
+	SCIENCE,ENGINEERING,MEDICAL,COMPUTER,
+	SOCIAL,PHILOSOPHY, LANGUAGE,GEOEGRAPHY,
+	HISTORY,FICTION,ARTS,BUISNESS
+
+}

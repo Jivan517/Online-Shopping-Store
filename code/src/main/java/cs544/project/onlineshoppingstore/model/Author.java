@@ -4,13 +4,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+@Entity
 public class Author {
 	
-	private String id;
+	@Id @GeneratedValue
+	private long id;
+	private String authorid;
 	private String firstName;
 	private String lastName;
 	private Date dob;
-	private List<Book> books = new ArrayList<Book>();
+	
+	@ManyToMany(mappedBy="authorslist")
+	private List<Book> bookslist = new ArrayList<Book>();
 	
 
 }
