@@ -14,6 +14,14 @@ public class ShippingAddress extends Address{
 	@OneToOne
 	@JoinColumn(name="customerId")
 	private Customer customer;
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	
 	
 }
