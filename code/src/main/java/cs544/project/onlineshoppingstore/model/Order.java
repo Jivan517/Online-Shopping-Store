@@ -24,5 +24,10 @@ public class Order {
 	private List<Orderline> orderlines = new ArrayList<>();
 	
 	
+	@ManyToOne
+	@JoinColumn(name = "customerId")
+	private Customer customer;
+	
+	
 	
 }

@@ -1,6 +1,9 @@
 package cs544.project.onlineshoppingstore.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -14,6 +17,6 @@ public class Customer extends ACLUser{
 	@OneToOne(mappedBy="customer")
 	private BilingAddress bilingAdrress;
 	
-	@OneToOne(mappedBy="customer")
-	private Order order;
+	@OneToMany(mappedBy="customer")
+	private List<Order> order;
 }

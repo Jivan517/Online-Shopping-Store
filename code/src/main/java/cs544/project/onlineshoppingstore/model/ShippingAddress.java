@@ -15,7 +15,5 @@ public class ShippingAddress extends Address{
 	@JoinColumn(name="customerId")
 	private Customer customer;
 	
-	@OneToOne(mappedBy="shippingAddress")
-	private Order order;
 	
 }
