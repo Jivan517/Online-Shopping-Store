@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,6 +21,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Book {
@@ -36,7 +38,7 @@ public class Book {
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@NotNull(message ="Edition can not be blank")
+	@NotNull(message ="Release Date can not be blank")
 	private Date releaseDate;
 	
 	@NotNull(message = "Price can not be blank")
@@ -49,11 +51,14 @@ public class Book {
 	@NotNull(message = "Length can not be blank")
 	private int length;
 	
-	@NotBlank(message = "Dimensions (L * B * H) can not be blank")
+	@NotBlank(message = "Dimensions can not be blank")
 	private String dimension;
 	
+	private transient MultipartFile cover;
+	
 	@Lob
-	private Byte[] cover;
+	@Column(name = "cover")
+	private byte[] bookCover;
 	
 	@NotBlank(message ="Description can not be blank")
 	private String description;	
@@ -81,6 +86,14 @@ public class Book {
 	
 	@OneToMany(mappedBy="book")
 	private List<Orderline>  orderlines;
+
+	public byte[] getBookCover() {
+		return bookCover;
+	}
+
+	public void setBookCover(byte[] bookCover) {
+		this.bookCover = bookCover;
+	}
 
 	public long getId() {
 		return id;
@@ -154,11 +167,11 @@ public class Book {
 		this.quantity = quantity;
 	}
 
-	public Byte[] getCover() {
+	public MultipartFile getCover() {
 		return cover;
 	}
 
-	public void setCover(Byte[] cover) {
+	public void setCover(MultipartFile cover) {
 		this.cover = cover;
 	}
 

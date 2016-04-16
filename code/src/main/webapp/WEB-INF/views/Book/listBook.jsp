@@ -43,11 +43,11 @@
 						<td>${book.releaseDate}</td>
 						<td>
 							<form action="books/update/${book.id}" method="get">
-								<button>Update</button>
+								<button class = "btn btn-info">Update</button>
 							</form>
 						</td>
 						<td><form action="books/delete/${book.id}" method="post">
-								<button type="submit">Delete</button>
+								<button class = "btn btn-info" type="submit">Delete</button>
 							</form></td>
 					</tr>
 				</c:forEach>

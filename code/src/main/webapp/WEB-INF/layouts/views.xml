@@ -16,5 +16,9 @@
 	    <put-attribute name="body"	value="/WEB-INF/views/Book/addBook.jsp" />
 	</definition>
 	
+	<definition name="Book/updateBook" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/Book/updateBook.jsp" />
+	</definition>
+	
 	
 </tiles-definitions>
