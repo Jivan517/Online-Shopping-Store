@@ -12,13 +12,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 import cs544.project.onlineshoppingstore.model.Publisher;
+import cs544.project.onlineshoppingstore.service.AuthorService;
 import cs544.project.onlineshoppingstore.service.PublisherService;
 
 @Controller
 @RequestMapping("/publisher")
 public class PublisherController {
-	@Autowired
+	
 	private PublisherService publisherService;
+	
+	@Autowired
+	public void setPublisherService(PublisherService publisherService){
+		this.publisherService = publisherService;
+	}
 	
 	@RequestMapping(value = {"/","/list","/publishers","/all"})
 	public String list(Model model){

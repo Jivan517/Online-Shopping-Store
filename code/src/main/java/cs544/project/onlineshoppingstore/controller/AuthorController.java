@@ -19,8 +19,13 @@ import cs544.project.onlineshoppingstore.service.AuthorService;
 @RequestMapping("/author")
 public class AuthorController {
 	
-	@Autowired
+	
 	private AuthorService authorService;
+	
+	@Autowired
+	public void setAuthorService(AuthorService authorService){
+		this.authorService = authorService;
+	}
 	
 	@RequestMapping(value = {"/","/list","/auhtors","/all"})
 	public String list(Model model){
