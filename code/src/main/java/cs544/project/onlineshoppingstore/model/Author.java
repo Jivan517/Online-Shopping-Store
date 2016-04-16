@@ -24,6 +24,12 @@ public class Author {
 	@NotBlank(message = "First Name filed can not be null")
 	private String lastName;
 	
+	@NotBlank(message = "Email field can not be empty")
+	private String email;
+	
+	@NotBlank(message = "Phone field can not be empty")
+	private String phone;
+	
 	
 	@ManyToMany(mappedBy="authors")
 	private List<Book> books = new ArrayList<Book>();
@@ -36,6 +42,24 @@ public class Author {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getPhone() {
+		return this.phone;
+	}
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 
