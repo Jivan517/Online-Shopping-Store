@@ -10,7 +10,11 @@
 <body>
 	<div class="container">
 		<div class="page-header ">
-			<h3>Add Book</h3>
+
+			<ol class="breadcrumb">
+				<li><a href="${pageContext.request.contextPath}/book"><h3>Books </h3></a></li>
+				<li class="active"><h3>/ Add Book</h3></li>
+			</ol>
 		</div>
 
 		<br />
@@ -39,8 +43,8 @@
 					<form:errors path="isbn" class="alert alert-danger" role="alert" />
 				</div>
 			</div>
-			<br/>
-			
+			<br />
+
 			<div class="row">
 				<div class="col-md-4">
 					<div class="input-group">
@@ -58,10 +62,11 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="quantity" class="alert alert-danger" role="alert" />
+					<form:errors path="quantity" class="alert alert-danger"
+						role="alert" />
 				</div>
 			</div>
-			<br/>
+			<br />
 			<div class="row">
 				<div class="col-md-4">
 					<div class="input-group">
@@ -72,7 +77,7 @@
 				<div class="col-md-2">
 					<form:errors path="length" class="alert alert-danger" role="alert" />
 				</div>
-			
+
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Language</span>
@@ -80,10 +85,11 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="language" class="alert alert-danger" role="alert" />
+					<form:errors path="language" class="alert alert-danger"
+						role="alert" />
 				</div>
 			</div>
-			<br/>
+			<br />
 			<div class="row">
 				<div class="col-md-4">
 					<div class="input-group">
@@ -92,20 +98,23 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="dimension" class="alert alert-danger" role="alert" />
+					<form:errors path="dimension" class="alert alert-danger"
+						role="alert" />
 				</div>
-			
+
 				<div class="col-md-4">
 					<div class="input-group">
-						<span class="input-group-addon" id="basic-addon1">Release Date</span>
+						<span class="input-group-addon" id="basic-addon1">Release
+							Date</span>
 						<form:input path="releaseDate" class="form-control" />
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="releaseDate" class="alert alert-danger" role="alert" />
+					<form:errors path="releaseDate" class="alert alert-danger"
+						role="alert" />
 				</div>
 			</div>
-			<br/>
+			<br />
 			<div class="row">
 				<div class="col-md-10">
 					<div class="input-group">
@@ -114,27 +123,21 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="description" class="alert alert-danger" role="alert" />
+					<form:errors path="description" class="alert alert-danger"
+						role="alert" />
 				</div>
 			</div>
-			
-			
-			
 
 			<br />
 			<br />
 
-			<div class="row">
+			<div>
 				<input type="submit" value="Add" class="btn btn-primary" />
 			</div>
-
+			
+			<br/>
+			<br/>
 		</form:form>
-		<div class="row">
-			<form action="${pageContext.request.contextPath}/directors"
-				method="GET">
-				<button class="btn btn-danger">Cancel</button>
-			</form>
-		</div>
 	</div>
 </body>
 </html>
