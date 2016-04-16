@@ -1,5 +1,6 @@
 package cs544.project.onlineshoppingstore.controller;
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,8 +72,6 @@ public class AuthorController {
 		authorService.delete(id);
 		return "redirect:/author";	
 		
-	}
-	
-	
+	}	
 
 }
