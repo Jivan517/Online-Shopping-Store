@@ -1,5 +1,6 @@
 package cs544.project.onlineshoppingstore.model;
 
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +13,13 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Book {
@@ -23,31 +28,43 @@ public class Book {
 	@Id @GeneratedValue
 	private long id;
 	
-	@NotBlank(message ="ISBN can not be empty")
+	@NotBlank(message ="ISBN can not be blank")
 	private String isbn;
 	
-	@NotBlank(message ="Title can not be empty")
+	@NotBlank(message ="Title can not be blank")
 	private String title;
 	
-	@NotBlank(message ="Edition can not be empty")
-	private String edition;
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotNull(message ="Edition can not be blank")
+	private Date releaseDate;
 	
-	@NotNull(message = "Price can not be null")
+	@NotNull(message = "Price can not be blank")
 	private double price;
 	
-	@NotNull(message = "Price can not be null")
+	@NotNull(message = "Price can not be blank")
 	private int quantity;
+	
+	@Max(value = 2000, message = "Page length can not be greater than 2000")
+	@NotNull(message = "Length can not be blank")
+	private int length;
+	
+	@NotBlank(message = "Dimensions (L * B * H) can not be blank")
+	private String dimension;
 	
 	@Lob
 	private Byte[] cover;
 	
-	@NotBlank(message ="Description can not be empty")
+	@NotBlank(message ="Description can not be blank")
 	private String description;	
 	
-	@NotNull(message = "Book type can not be null")
+	@NotBlank(message = "Language can not be blank")
+	private String language;
+	
+	@NotNull(message = "Book type can not be blank")
 	private BookType bookType;
 	
-	@NotNull(message = "Book type can not be null")
+	@NotNull(message = "Book type can not be blank")
 	private BookCategory bookCategory;
 	
 	@ManyToMany
@@ -89,12 +106,36 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getEdition() {
-		return edition;
+	public Date getReleaseDate() {
+		return this.releaseDate;
 	}
 
-	public void setEdition(String edition) {
-		this.edition = edition;
+	public void setReleaseDate(Date edition) {
+		this.releaseDate = edition;
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+	public String getDimension() {
+		return dimension;
+	}
+
+	public void setDimension(String dimension) {
+		this.dimension = dimension;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 	public double getPrice() {

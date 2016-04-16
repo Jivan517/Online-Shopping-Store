@@ -1,12 +1,18 @@
 package cs544.project.onlineshoppingstore.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.apache.velocity.app.event.ReferenceInsertionEventHandler.referenceInsertExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,6 +42,12 @@ public class BookController {
 	@Autowired
 	public void setPublisherService(PublisherService publisherService){
 		this.publisherService = publisherService;
+	}
+	
+	@InitBinder     
+	public void initBinder(WebDataBinder binder){
+	     binder.registerCustomEditor(Date.class,     
+	                         new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true, 10));   
 	}
 	
 	@RequestMapping(value = {"/books", "/book" }, method = RequestMethod.GET)
