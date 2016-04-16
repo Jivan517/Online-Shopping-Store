@@ -50,7 +50,7 @@ public class PublisherController {
 			return "redirect:/publisher/add";
 		
 		publisherService.create(publisher);		
-		return "redirect:/publisher";		
+		return "redirect:/publisher/";		
 	}
 	
 	@RequestMapping(value= "/update/{id}", method = RequestMethod.GET)

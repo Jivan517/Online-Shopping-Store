@@ -21,13 +21,33 @@ public class Publisher {
 	@NotNull(message = "Name can not be blank.")
 	private String name;
 	
+	private String email;
+	
+	private  String phone;
+	
 	@OneToMany(mappedBy="publisher")
 	private List<Book> books = new ArrayList<Book>();
 
 	public long getId() {
 		return id;
 	}
-
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}
