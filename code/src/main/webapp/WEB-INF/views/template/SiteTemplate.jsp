@@ -16,6 +16,10 @@
 <link href="favicon.ico" rel="icon" type="image/x-icon" />
 <style>
 
+@media screen and (min-width: 768px){
+            .rwd-break { display: none; }
+        }
+        
 </style>
 </head>
 <body>
@@ -27,7 +31,7 @@
 			<tiles:insertAttribute name="menu" />
 		</div>
 		<!-- Body Page -->
-		<div class="col-md-12" style="height:500px;">
+		<div class="col-md-12" style="min-height:500px;">
 			<tiles:insertAttribute name="body" />
 		</div>
 		<!-- Footer Page -->

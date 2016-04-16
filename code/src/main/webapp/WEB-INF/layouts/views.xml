@@ -8,6 +8,13 @@
 	    <put-attribute name="body"	value="/WEB-INF/views/home.jsp" />
 	</definition>
 
+	<definition name="Book/listBook" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/Book/listBook.jsp" />
+	</definition>
+	
+	<definition name="Book/addBook" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/Book/addBook.jsp" />
+	</definition>
 	
 	
 </tiles-definitions>

@@ -48,7 +48,10 @@ public class Publisher {
 		this.books = books;
 	}
 	
-	
+	@Override
+	public String toString(){
+		return this.name;
+	}
 	
 	
 
