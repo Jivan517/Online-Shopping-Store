@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -72,12 +73,12 @@ public class Book {
 	@NotNull(message = "Book type can not be blank")
 	private BookCategory bookCategory;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="BookAuthor", joinColumns = @JoinColumn(name="bookId"),
 	inverseJoinColumns = @JoinColumn(name="authorId"))	
 	private List<Author> authors = new ArrayList<Author>();
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="publisherId")
 	private Publisher publisher;
 	
