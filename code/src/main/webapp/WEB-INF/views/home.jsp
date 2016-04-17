@@ -2,7 +2,7 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>Welcome | Online Book Store</title>
+<title>Welcome | AMJ-Online Book Store</title>
 </head>
 <body>
 
