@@ -77,7 +77,10 @@ public class Author {
 		return lastName;
 	}
 
-
+	public String getFullName(){
+		return this.firstName + " " + this.lastName;
+	}
+	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -92,7 +95,10 @@ public class Author {
 		this.books = books;
 	}
 	
-	
+	@Override
+	public String toString(){
+		return this.firstName + " " + this.lastName;
+	}
 	
 
 }

@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -67,9 +69,11 @@ public class Book {
 	@NotBlank(message = "Language can not be blank")
 	private String language;
 	
+	@Enumerated(EnumType.ORDINAL)
 	@NotNull(message = "Book type can not be blank")
 	private BookType bookType;
 	
+	@Enumerated(EnumType.ORDINAL)
 	@NotNull(message = "Book type can not be blank")
 	private BookCategory bookCategory;
 	
@@ -78,9 +82,13 @@ public class Book {
 	inverseJoinColumns = @JoinColumn(name="authorId"))	
 	private List<Author> authors = new ArrayList<Author>();
 	
+	private transient List<Long> authorIds = new ArrayList<>();
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="publisherId")
 	private Publisher publisher;
+	
+	private transient long publisherId;
 	
 	@OneToMany(mappedBy="book")
 	private List<Review> reviews = new ArrayList<Review>();
@@ -102,6 +110,22 @@ public class Book {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public List<Long> getAuthorIds() {
+		return authorIds;
+	}
+
+	public void setAuthorIds(List<Long> authorIds) {
+		this.authorIds = authorIds;
+	}
+
+	public long getPublisherId() {
+		return publisherId;
+	}
+
+	public void setPublisherId(long publisherId) {
+		this.publisherId = publisherId;
 	}
 
 	public String getIsbn() {

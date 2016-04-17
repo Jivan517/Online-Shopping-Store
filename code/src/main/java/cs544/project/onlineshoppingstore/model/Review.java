@@ -3,6 +3,7 @@ package cs544.project.onlineshoppingstore.model;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,11 +22,11 @@ public class Review {
 	@NotNull(message="Rating can not be null")
 	private BookRating rating;	
 	
-	@ManyToOne
+	@ManyToOne (fetch = FetchType.EAGER)
 	@JoinColumn(name="isbn")
 	private Book book;
 	
-	@ManyToOne
+	@ManyToOne (fetch = FetchType.EAGER)
 	@JoinColumn(name="customerId")
 	private Customer customer;
 

@@ -12,6 +12,8 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 	<default-servlet-handler/>
+	<context:annotation-config/>
+	
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
@@ -29,7 +31,6 @@
 	
 	
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.controller" />
-	<annotation-driven/>
 	<default-servlet-handler/>
 	
 </beans:beans>

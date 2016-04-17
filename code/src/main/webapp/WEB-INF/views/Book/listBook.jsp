@@ -12,6 +12,17 @@
 }
 </style>
 
+<script type="text/javascript">
+function confirmDelete(delForm, delUrl) { 
+    if (confirm("Are you sure to delete the Book?")) {
+        delForm.action = delUrl;          
+        return true;                      
+    }
+    return false;                         
+}
+
+</script>
+
 </head>
 <body>
 	<div class="container">
@@ -43,11 +54,12 @@
 						<td>${book.releaseDate}</td>
 						<td>
 							<form action="books/update/${book.id}" method="get">
-								<button class = "btn btn-info">Update</button>
+								<button class="btn btn-info">Update</button>
 							</form>
 						</td>
-						<td><form action="books/delete/${book.id}" method="post">
-								<button class = "btn btn-info" type="submit">Delete</button>
+						<td><form action="books/delete/${book.id}" method="post"
+								onsubmit="return confirmDelete(this, 'books/delete/${book.id}')">
+								<button class="btn btn-danger" type="submit">Delete</button>
 							</form></td>
 					</tr>
 				</c:forEach>
