@@ -31,7 +31,12 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/Author/updateAuthor.jsp" />
 	</definition>
-
+	
+	<definition name="Book/updateBook" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/Book/updateBook.jsp" />
+	</definition>
+	
+	
 	<definition name="Publisher/updatePublisher" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/Publisher/updatePublisher.jsp" />

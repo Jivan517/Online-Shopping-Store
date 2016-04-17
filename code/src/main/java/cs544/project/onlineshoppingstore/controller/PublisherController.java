@@ -47,7 +47,7 @@ public class PublisherController {
 	public String add(@Valid Publisher publisher, BindingResult result){
 		
 		if(result.hasErrors())
-			return "redirect:/publisher/add";
+			return "Publisher/addPublisher";
 		
 		publisherService.create(publisher);		
 		return "redirect:/publisher/";		

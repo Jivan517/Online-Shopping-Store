@@ -26,7 +26,7 @@
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1"> Name</span>
-						<form:input path="Name" class="form-control" />
+						<form:input path="name" class="form-control" />
 					</div>
 				</div>
 				<div class="col-md-2">
