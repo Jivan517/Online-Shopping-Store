@@ -51,7 +51,7 @@ public class AuthorController {
 			return "redirect:/author/add";
 		
 		authorService.create(author);		
-		return "redirect:/author";		
+		return "redirect:/author/";		
 	}
 	
 	@RequestMapping(value= "/update/{id}", method = RequestMethod.GET)

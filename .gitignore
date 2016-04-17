@@ -1,2 +1,3 @@
-/target/
-/local.properties
+code/target
+/main/resources/**/*.properties
+!.gitignore

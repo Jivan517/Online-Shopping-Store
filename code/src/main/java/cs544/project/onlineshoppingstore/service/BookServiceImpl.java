@@ -1,5 +1,6 @@
 package cs544.project.onlineshoppingstore.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,34 +10,61 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cs544.project.onlineshoppingstore.dao.BookDao;
 import cs544.project.onlineshoppingstore.model.Book;
+import cs544.project.onlineshoppingstore.utils.IdToEntityConvertor;
 
-@Transactional(propagation= Propagation.REQUIRED)
+@Transactional(propagation = Propagation.REQUIRED)
 @Component
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements BookService {
 
 	private BookDao bookDao;
-	
+
 	@Autowired
-	public void setBookDao(BookDao bookDao){
+	public void setBookDao(BookDao bookDao) {
 		this.bookDao = bookDao;
 	}
 	
+	@Autowired
+	private IdToEntityConvertor idToEntityConvertor;
+
 	@Override
 	public void create(Book book) {
-		bookDao.save(book);
+		try {
+			
+			byte[] coverBytes = book.getCover().getBytes();
+			book.setBookCover(coverBytes);
+			
+			book.setAuthors(idToEntityConvertor.getAuthorListFromIdList(book.getAuthorIds()));
+			book.setPublisher(idToEntityConvertor.getPublisherFromId(book.getPublisherId()));
+			
+			bookDao.save(book);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void update(long id, Book book) {
-		bookDao.save(book);
 		
+		try {
+			byte[] coverBytes = book.getCover().getBytes();
+			book.setBookCover(coverBytes);
+			
+			book.setAuthors(idToEntityConvertor.getAuthorListFromIdList(book.getAuthorIds()));
+			book.setPublisher(idToEntityConvertor.getPublisherFromId(book.getPublisherId()));
+			
+			bookDao.save(book);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	@Override
 	public void delete(long id) {
 		bookDao.delete(id);
-		
+
 	}
 
 	@Override
@@ -56,7 +84,11 @@ public class BookServiceImpl implements BookService{
 
 	@Override
 	public Book get(long id) {
-		return bookDao.getOne(id);
+		Book book = bookDao.findOne(id);
+		book.setPublisherId(book.getPublisher().getId());
+		book.setAuthorIds(idToEntityConvertor.getIdListFromAuthorList(book.getAuthors()));
+		
+		return book;
 	}
 
 	@Override

@@ -5,16 +5,52 @@
 <tiles-definitions>
 
 	<definition name="home" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/home.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+	</definition>
+	<definition name="Book/listBook" extends="DefaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/Book/listBook.jsp" />
 	</definition>
 
-	<definition name="Book/listBook" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/Book/listBook.jsp" />
-	</definition>
-	
 	<definition name="Book/addBook" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/Book/addBook.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/Book/addBook.jsp" />
+
+	</definition>
+	<definition name="Publisher/listPublisher" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Publisher/listPublisher.jsp" />
+	</definition>
+
+	<definition name="Publisher/addPublisher" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/Publisher/addPublisher.jsp" />
+	</definition>
+
+
+	<definition name="Author/addAuthor" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Author/addAuthor.jsp" />
+	</definition>
+
+	<definition name="Author/listAuthor" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Author/listAuthor.jsp" />
+	</definition>
+
+	<definition name="Author/updateAuthor" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Author/updateAuthor.jsp" />
+	</definition>
+	
+	<definition name="Book/updateBook" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/Book/updateBook.jsp" />
 	</definition>
 	
 	
+	<definition name="Publisher/updatePublisher" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Publisher/updatePublisher.jsp" />
+	</definition>
+
+
 </tiles-definitions>

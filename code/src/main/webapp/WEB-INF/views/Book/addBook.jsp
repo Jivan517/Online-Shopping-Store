@@ -12,7 +12,8 @@
 		<div class="page-header ">
 
 			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/book"><h3>Books </h3></a></li>
+				<li><a href="${pageContext.request.contextPath}/book"><h3>Books
+						</h3></a></li>
 				<li class="active"><h3>/ Add Book</h3></li>
 			</ol>
 		</div>
@@ -20,7 +21,7 @@
 		<br />
 
 		<form:form modelAttribute="book"
-			action="${pageContext.request.contextPath}/books/add" method="post">
+			action="${pageContext.request.contextPath}/books/add" method="post" enctype="multipart/form-data">
 
 			<div class="row">
 				<div class="col-md-4">
@@ -30,7 +31,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="title" class="alert alert-danger" role="alert" />
+					<form:errors path="title" cssStyle="color:red"/>
 				</div>
 
 				<div class="col-md-4">
@@ -40,7 +41,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="isbn" class="alert alert-danger" role="alert" />
+					<form:errors path="isbn" cssStyle="color:red"/>
 				</div>
 			</div>
 			<br />
@@ -53,7 +54,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="price" class="alert alert-danger" role="alert" />
+					<form:errors path="price" cssStyle="color:red"/>
 				</div>
 				<div class="col-md-4">
 					<div class="input-group">
@@ -62,7 +63,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="quantity" class="alert alert-danger"
+					<form:errors path="quantity" cssStyle="color:red"
 						role="alert" />
 				</div>
 			</div>
@@ -75,7 +76,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="length" class="alert alert-danger" role="alert" />
+					<form:errors path="length" cssStyle="color:red"/>
 				</div>
 
 				<div class="col-md-4">
@@ -85,7 +86,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="language" class="alert alert-danger"
+					<form:errors path="language" cssStyle="color:red"
 						role="alert" />
 				</div>
 			</div>
@@ -94,11 +95,11 @@
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Dimensions</span>
-						<form:input path="dimension" class="form-control" />
+						<form:input path="dimension" class="form-control" placeholder = "2.5'' * 3.4'' * 4.0''"/>
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="dimension" class="alert alert-danger"
+					<form:errors path="dimension" cssStyle="color:red"
 						role="alert" />
 				</div>
 
@@ -106,24 +107,97 @@
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Release
 							Date</span>
-						<form:input path="releaseDate" class="form-control" />
+						<form:input path="releaseDate" class="form-control" placeholder = "yyyy-MM-dd"/>
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="releaseDate" class="alert alert-danger"
+					<form:errors path="releaseDate" cssStyle="color:red"
 						role="alert" />
 				</div>
 			</div>
 			<br />
+
 			<div class="row">
-				<div class="col-md-10">
+
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Book
+							Cover</span>
+						<form:input path="cover" class="form-control" type = "file" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="cover" cssStyle="color:red"/>
+				</div>
+
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Book Type
+						</span>
+						<form:select path="bookType" items="${bookTypes}"
+							class="form-control"></form:select>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="bookType" cssStyle="color:red"
+						role="alert" />
+				</div>
+
+			</div>
+			<br />
+			<div class="row">
+
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Book
+							Category</span>
+						<form:select path="bookCategory" class="form-control"
+							items="${bookCategories }" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="bookCategory" cssStyle="color:red"
+						role="alert" />
+				</div>
+
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Authors </span>
+						<form:select path="authorIds" items="${authors}"
+							class="form-control" itemLabel="fullName" itemValue="id" ></form:select>
+							
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="authorIds" cssStyle="color:red"/>
+				</div>
+
+			</div>
+			<br />
+
+			<div class="row">
+
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Publisher
+						</span>
+						<form:select path="publisherId" items="${publishers}"
+							class="form-control" itemLabel="name" itemValue="id" ></form:select>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="publisherId" cssStyle="color:red"
+						role="alert" />
+				</div>
+
+				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Description</span>
 						<form:textarea path="description" class="form-control" />
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="description" class="alert alert-danger"
+					<form:errors path="description" cssStyle="color:red"
 						role="alert" />
 				</div>
 			</div>
@@ -134,9 +208,9 @@
 			<div>
 				<input type="submit" value="Add" class="btn btn-primary" />
 			</div>
-			
-			<br/>
-			<br/>
+
+			<br />
+			<br />
 		</form:form>
 	</div>
 </body>

@@ -24,6 +24,7 @@
 	<context:annotation-config/>
 	<jpa:repositories base-package="cs544.project.onlineshoppingstore.dao"></jpa:repositories>
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.service"></context:component-scan>
+	<context:component-scan base-package="cs544.project.onlineshoppingstore.utils"></context:component-scan>
 	
 	<bean id="propertyPlaceHolderConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"></bean>
@@ -62,4 +63,7 @@
 		<property name = "password" value = "${db.password}"></property>
 	</bean>
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="250000"/>
+</bean>
 </beans>
