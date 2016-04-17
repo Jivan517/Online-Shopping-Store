@@ -5,36 +5,46 @@
 	<title>Welcome | Online Book Store</title>
 </head>
 <body>
-<h1>AJM</h1>
-	<h2>AJM | List of Publishers</h2>
-	<br>
-	<a href="<spring:url value="/add" />" > Add Publisher</a>
-	<table>
+<div class="container">
+		<div class="page-header ">
+			<h3>Books Collection</h3>
+		</div>
 
-		<thead>
-			<tr>
-				<th>Name</th>
-				
-			</tr>
-		</thead>
+		<div>
+			<a href="${pageContext.request.contextPath}/publisher/add/" class="btn btn-primary"> Add publisher</a>
+		</div>
 
-		<c:forEach var="publisher" items="${publisherList}">
-			<tr>
-				<td>${publisher.name} &nbsp; </td>
-				<td>${publisher.email} &nbsp; </td>
-				<td>${publisher.phone} &nbsp; </td>
-				<td>
-				<form action="publisher/update/${publisher.id}" method="get">
-						<button>Update</button>
-					</form></td>
-				<td><form action="publisher/delete/${publisher.id}" method="post">
-						<button type="submit">Delete</button>
-					</form></td>
-			</tr>
-		</c:forEach>
-	</table>
+		<br />
 
-
-<P>  The time on the server is ${serverTime}. </P>
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Email</th>
+						
+					</tr>
+				</thead>
+				<c:forEach var="publisher" items="${publisherList}">
+					<tr>
+						<td>${publisher.name}</td>
+						<td>${publisher.phone}</td>
+						<td>${publisher.email}</td>
+						
+						<td>
+						
+							<form action="${pageContext.request.contextPath}/publisher/update/${publisher.id}" method="get">
+								<button>Update</button>
+							</form>
+						</td>
+						<td><form action="${pageContext.request.contextPath}/publisher/delete/${publisher.id}" method="post">
+								<button type="submit">Delete</button>
+							</form></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

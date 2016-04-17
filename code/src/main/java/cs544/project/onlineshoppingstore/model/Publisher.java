@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -29,7 +30,11 @@ public class Publisher {
 	private List<Book> books = new ArrayList<Book>();
 
 	public long getId() {
-		return id;
+		return this.id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	public String getEmail() {
@@ -48,9 +53,7 @@ public class Publisher {
 		this.phone = phone;
 	}
 	
-	public void setId(long id) {
-		this.id = id;
-	}
+
 
 	public String getName() {
 		return name;

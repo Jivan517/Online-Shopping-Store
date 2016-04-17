@@ -64,10 +64,10 @@ public class PublisherController {
 	@RequestMapping(value = "/update/{id}",method = RequestMethod.POST)
 	public String update(@Valid Publisher publisher, @PathVariable long id, BindingResult result){
 		if(result.hasErrors())
-			return "redirect:/publisher/update" + id;
+			return "redirect:/publisher/update/" + id;
 		
 		publisherService.update(id, publisher);
-		return "redirect:/publisher/update";  // when redirect we are returning url, not a view
+		return "redirect:/publisher/";  // when redirect we are returning url, not a view
 	}
 	
 	@RequestMapping(value = "/delete/{id}, method = Request.POST")

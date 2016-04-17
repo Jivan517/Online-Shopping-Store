@@ -46,7 +46,7 @@
 						<form:input id="phone" path="phone" type= "text" class="form:input-large" value = "${author.phone}"/>
 					</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group" action="${pageContext.request.contextPath}/author/update/${author.id}" method="post">
 				<div class="col-lg-offset-2 col-lg-10">
 					<input type="submit" id="btnAdd" class= "btn btn-primary" value ="Update"/>
 				</div>

@@ -68,7 +68,7 @@ public class AuthorController {
 			return "redirect:/author/update" + id;
 		
 		authorService.update(id, author);
-		return "redirect:/author/update";  // when redirect we are returning url, not a view
+		return "redirect:/author/";  // when redirect we are returning url, not a view
 	}
 	
 	@RequestMapping(value = "/delete/{id}, method = Request.POST")

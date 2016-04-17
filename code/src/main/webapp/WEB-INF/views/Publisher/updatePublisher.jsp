@@ -10,7 +10,7 @@
 <body>
 
 <section class="container">
-	<form:form modelAttribute="author" class= "form-horizontal">
+	<form:form modelAttribute="publisher" class= "form-horizontal">
 	<fieldset>
 		<legend>Update Publisher</legend>
 			
@@ -23,7 +23,7 @@
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for= "name">Name</label>
 					<div class="col-lg-10">
-						<form:input id="firstName" path="firstName" type= "text" class="form:input-large" value = "${publisher.name}"/>
+						<form:input id="name" path="name" type= "text" class="form:input-large" value = "${publisher.name}"/>
 					</div>
 			</div>
 			
@@ -41,7 +41,7 @@
 						<form:input id="phone" path="phone" type= "text" class="form:input-large" value = "${publisher.phone}"/>
 					</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group" action="${pageContext.request.contextPath}/publisher/update/${publisher.id}" method="post">
 				<div class="col-lg-offset-2 col-lg-10">
 					<input type="submit" id="btnAdd" class= "btn btn-primary" value ="Update"/>
 				</div>

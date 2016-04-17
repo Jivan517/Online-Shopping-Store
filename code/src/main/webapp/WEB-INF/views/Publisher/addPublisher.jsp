@@ -8,48 +8,74 @@
 	<title>Welcome | Online Book Store</title>
 </head>
 <body>
+<div class="container">
+		<div class="page-header ">
 
-<section class="container">
-	<form:form modelAttribute="publisher" class= "form-horizontal">
-	<fieldset>
-		<legend>Add new publisher</legend>
-			
-			<div class="form-group">
-				<label class="control-label col-lg-2 col-lg-2" for= "id">Publisher Id</label>
-					<div class="col-lg-10">
-						<form:input id="id" path="id" type= "text" class="form:input-large"/>
-					</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-lg-2 col-lg-2" for= "name">Publisher Name</label>
-					<div class="col-lg-10">
-						<form:input id="name" path="name" type= "text" class="form:input-large"/>
-					</div>
-			</div>
+			<ol class="breadcrumb">
+				<li><a href="${pageContext.request.contextPath}/publisher/"><h3>Publishers </h3></a></li>
+				<li class="active"><h3>/ Add Publisher</h3></li>
+			</ol>
+		</div>
 
-			<div class="form-group">
-				<label class="control-label col-lg-2 col-lg-2" for= "email">Email</label>
-					<div class="col-lg-10">
-						<form:input id="email" path="email" type= "text" class="form:input-large"/>
+		<br />
+
+		<form:form modelAttribute="publisher"
+			action="${pageContext.request.contextPath}/publisher/add" method="post">
+
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1"> Name</span>
+						<form:input path="Name" class="form-control" />
 					</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-lg-2 col-lg-2" for= "phone">Phone</label>
-					<div class="col-lg-10">
-						<form:input id="phone" path="phone" type= "text" class="form:input-large"/>
-					</div>
-			</div>
-			<div class="form-group">
-				<div class="col-lg-offset-2 col-lg-10">
-					<input type="submit" id="btnAdd" class= "btn btn-primary" value ="Add"/>
 				</div>
+				<div class="col-md-2">
+					<form:errors path="name" class="alert alert-danger" role="alert" />
+				</div>
+
+				
 			</div>
+			<br />
 
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Email</span>
+						<form:input path="email" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="email" class="alert alert-danger" role="alert" />
+				</div>
 
-	</fieldset>
-	</form:form>
-</section>
+				
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Phone</span>
+						<form:input path="phone" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="phone" class="alert alert-danger"
+						role="alert" />
+				</div>
 
-<P>  The time on the server is ${serverTime}. </P>
+				
+			</div>
+			<br />
+			<br />
+
+			<div>
+				<input type="submit" value="Add" class="btn btn-primary" />
+			</div>
+			
+			<br/>
+			<br/>
+		</form:form>
+	</div>
 </body>
 </html>

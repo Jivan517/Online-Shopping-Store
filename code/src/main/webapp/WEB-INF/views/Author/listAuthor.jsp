@@ -7,40 +7,47 @@
 	<title>Welcome | Online Book Store</title>
 </head>
 <body>
-<h1>AJM</h1>
-	<h2>AJM | List of Authors</h2>
-	<br>
-	<a href= "<spring:url value="/author/add" />"  > Add Author</a>
+<div class="container">
+		<div class="page-header ">
+			<h3>Books Collection</h3>
+		</div>
 
-<section class="container">
-	<div class=row>
-		<c:forEach items="${authorList}" var="author">
+		<div>
+			<a href="${pageContext.request.contextPath}/author/add/" class="btn btn-primary"> Add author</a>
+		</div>
 
-				<h3>First Name : ${author.firstName}</h3>
-				<p>Last Name : ${author.lastName}</p>
-				 
-				<p>Email : ${author.email}</p>
-				<p>Phone : ${author.phone}</p>
-				
-				<form action="author/update/${publisher.id}" method="get">
-						<button>Update</button>
-					</form></td>
-				<td><form action="author/delete/${publisher.id}" method="post">
-						<button type="submit">Delete</button>
-					</form></td>
-				
-			<!--  
-				<p>
-				<a href=" <spring:url value="/movies/movie?id=${movie.id}" /> " class="btn btn-primary">
-					<span class="glyphicon-info-sign glyphicon"/></span> Details
-				</a>
-				</p>
-			-->
-		</c:forEach>
+		<br />
+
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Phone</th>
+						<th>Email</th>
+						
+					</tr>
+				</thead>
+				<c:forEach var="author" items="${authorList}">
+					<tr>
+						<td>${author.firstName}</td>
+						<td>${author.lastName}</td>
+						<td>${author.phone}</td>
+						<td>${author.email}</td>
+						
+						<td>
+							<form action="${pageContext.request.contextPath}/author/update/${author.id}" method="get">
+								<button>Update</button>
+							</form>
+						</td>
+						<td><form action="${pageContext.request.contextPath}/author/delete/${author.id}" method="post">
+								<button type="submit">Delete</button>
+							</form></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
 	</div>
-</section>
-
-
-<P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>

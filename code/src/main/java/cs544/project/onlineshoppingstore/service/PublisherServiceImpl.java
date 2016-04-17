@@ -23,7 +23,7 @@ public class PublisherServiceImpl implements PublisherService{
 
 	@Override
 	public Publisher get(long publisherId) {
-		return publisherDao.getOne(publisherId);
+		return publisherDao.findOne(publisherId);
 	}
 
 	@Override
