@@ -65,6 +65,9 @@ public class BookController {
 		model.addAttribute("book", new Book());
 		model.addAttribute("bookTypes", Arrays.asList(BookType.values()));
 		model.addAttribute("bookCategories", Arrays.asList(BookCategory.values()));
+		model.addAttribute("authors", authorService.getAll());
+		model.addAttribute("publishers", publisherService.getAll());
+		
 
 		return "Book/addBook";
 	}
@@ -76,6 +79,8 @@ public class BookController {
 		if (result.hasErrors()) {
 			model.addAttribute("bookTypes", Arrays.asList(BookType.values()));
 			model.addAttribute("bookCategories", Arrays.asList(BookCategory.values()));
+			model.addAttribute("authors", authorService.getAll());
+			model.addAttribute("publishers", publisherService.getAll());
 			return "Book/addBook";
 		}
 
@@ -84,11 +89,30 @@ public class BookController {
 	}
 
 	@RequestMapping(value = { "/books/update/{id}" }, method = RequestMethod.GET)
-	public String update(@PathVariable int id, Model model) {
+	public String update(@PathVariable long id, Model model) {
 
+		Book book = bookService.get(id);
 		model.addAttribute("bookTypes", Arrays.asList(BookType.values()));
 		model.addAttribute("bookCategories", Arrays.asList(BookCategory.values()));
-		model.addAttribute("book", bookService.get(id));
+		
+		System.out.println("After category");
+		
+		model.addAttribute("book", book);
+		
+		System.out.println("After Book");
+		
+		model.addAttribute("authors", authorService.getAll());
+		model.addAttribute("publishers", publisherService.getAll());
+		
+		System.out.println("After Pub");
+		
+		System.out.println(id);
+		System.out.println(book);
+		System.out.println(book.getTitle());
+		System.out.println(book.getId());
+		
+		System.out.println("After ID");
+		
 		return "Book/updateBook";
 	}
 
@@ -99,6 +123,8 @@ public class BookController {
 		
 			model.addAttribute("bookTypes", Arrays.asList(BookType.values()));
 			model.addAttribute("bookCategories", Arrays.asList(BookCategory.values()));
+			model.addAttribute("authors", authorService.getAll());
+			model.addAttribute("publishers", publisherService.getAll());
 			return "redirect:/books/update/" + id;
 			
 		}

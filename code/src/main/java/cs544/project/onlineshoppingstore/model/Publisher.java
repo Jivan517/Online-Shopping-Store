@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+
+import javax.persistence.CascadeType;
 
 @Entity
 public class Publisher {
@@ -26,7 +25,7 @@ public class Publisher {
 	
 	private  String phone;
 	
-	@OneToMany(mappedBy="publisher")
+	@OneToMany(mappedBy="publisher", cascade=CascadeType.ALL)
 	private List<Book> books = new ArrayList<Book>();
 
 	public long getId() {

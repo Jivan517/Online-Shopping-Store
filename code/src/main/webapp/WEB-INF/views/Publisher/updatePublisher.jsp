@@ -14,20 +14,19 @@
 	<fieldset>
 		<legend>Update Publisher</legend>
 			
-			<div class="form-group">
-				<label class="control-label col-lg-2 col-lg-2" for= "id">Publisher Id</label>
-					<div class="col-lg-10">
-						<form:input id="id" path="id" type= "text" class="form:input-large" value = "${publisher.id}"/>
-					</div>
-			</div>
+<!-- 			<div class="form-group"> -->
+<!-- 				<label class="control-label col-lg-2 col-lg-2" for= "id">Publisher Id</label> -->
+<!-- 					<div class="col-lg-10"> -->
+<%-- 						<form:input id="id" path="id" type= "number" class="form:input-large" value = "${publisher.id}"/> --%>
+<!-- 					</div> -->
+<!-- 			</div> -->
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for= "name">Name</label>
 					<div class="col-lg-10">
 						<form:input id="name" path="name" type= "text" class="form:input-large" value = "${publisher.name}"/>
 					</div>
 			</div>
-			
-			
+					
 
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for= "email">Email</label>
@@ -51,7 +50,5 @@
 	</fieldset>
 	</form:form>
 </section>
-
-<P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>

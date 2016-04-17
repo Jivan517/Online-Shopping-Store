@@ -5,11 +5,23 @@
 <html>
 <head>
 	<title>Welcome | Online Book Store</title>
+	
+	<script type="text/javascript">
+		function confirmDelete(delForm, delUrl) { 
+		    if (confirm("Are you sure you want to delete this Author ?  Associated Books will also be deleted  !! ")) {
+		        delForm.action = delUrl;          
+		        return true;                      
+		    }
+		    return false;                         
+		}
+
+	</script>
+
 </head>
 <body>
 <div class="container">
 		<div class="page-header ">
-			<h3>Books Collection</h3>
+			<h3>Authors List</h3>
 		</div>
 
 		<div>
@@ -38,11 +50,12 @@
 						
 						<td>
 							<form action="${pageContext.request.contextPath}/author/update/${author.id}" method="get">
-								<button>Update</button>
+								<button class = "btn btn-info">Update</button>
 							</form>
 						</td>
-						<td><form action="${pageContext.request.contextPath}/author/delete/${author.id}" method="post">
-								<button type="submit">Delete</button>
+						<td><form action="${pageContext.request.contextPath}/author/delete/${author.id}" method="post"
+											onsubmit="return confirmDelete(this, '${pageContext.request.contextPath}/author/delete/${author.id}')">
+								<button type="submit" class = "btn btn-danger">Delete</button>
 							</form></td>
 					</tr>
 				</c:forEach>

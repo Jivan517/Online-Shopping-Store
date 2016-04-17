@@ -160,8 +160,8 @@
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Authors </span>
-						<form:select path="authors" items="${authors}"
-							class="form-control" value = "${book.authors }"></form:select>
+						<form:select path="authorIds" items="${authors}"
+							class="form-control" value = "${book.authorIds }" itemLabel="fullName" itemValue="id" ></form:select>
 					</div>
 				</div>
 				<div class="col-md-2">
@@ -177,8 +177,8 @@
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Publisher
 						</span>
-						<form:select path="publisher" items="${publishers}"
-							class="form-control" value = "${book.publisher }"></form:select>
+						<form:select path="publisherId" items="${publishers}"
+							class="form-control" value = "${book.publisherId }" itemLabel="name" itemValue="id" ></form:select>
 					</div>
 				</div>
 				<div class="col-md-2">

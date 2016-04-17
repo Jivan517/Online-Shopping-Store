@@ -1,6 +1,7 @@
 package cs544.project.onlineshoppingstore.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -20,11 +21,11 @@ public class Orderline {
 	@NotNull(message = "Sub-total cost cannot be blank.")
 	private double subTotal;
 	
-	@ManyToOne()
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "orderId")
 	private Order order;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "bookId")
 	private Book book;
 

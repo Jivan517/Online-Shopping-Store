@@ -1,9 +1,9 @@
 package cs544.project.onlineshoppingstore.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -31,7 +31,8 @@ public class Author {
 	private String phone;
 	
 	
-	@ManyToMany(mappedBy="authors")
+	@ManyToMany(mappedBy="authors", cascade=CascadeType.ALL)
+	
 	private List<Book> books = new ArrayList<Book>();
 
 
@@ -77,7 +78,10 @@ public class Author {
 		return lastName;
 	}
 
-
+	public String getFullName(){
+		return this.firstName + " " + this.lastName;
+	}
+	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -92,7 +96,10 @@ public class Author {
 		this.books = books;
 	}
 	
-	
+	@Override
+	public String toString(){
+		return this.firstName + " " + this.lastName;
+	}
 	
 
 }

@@ -163,12 +163,13 @@
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Authors </span>
-						<form:select path="authors" items="${authors}"
-							class="form-control"></form:select>
+						<form:select path="authorIds" items="${authors}"
+							class="form-control" itemLabel="fullName" itemValue="id" ></form:select>
+							
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="authors" cssStyle="color:red"/>
+					<form:errors path="authorIds" cssStyle="color:red"/>
 				</div>
 
 			</div>
@@ -180,12 +181,12 @@
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Publisher
 						</span>
-						<form:select path="publisher" items="${publishers}"
-							class="form-control"></form:select>
+						<form:select path="publisherId" items="${publishers}"
+							class="form-control" itemLabel="name" itemValue="id" ></form:select>
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="publisher" cssStyle="color:red"
+					<form:errors path="publisherId" cssStyle="color:red"
 						role="alert" />
 				</div>
 

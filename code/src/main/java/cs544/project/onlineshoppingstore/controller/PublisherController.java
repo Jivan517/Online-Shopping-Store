@@ -5,14 +5,15 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
 import cs544.project.onlineshoppingstore.model.Publisher;
-import cs544.project.onlineshoppingstore.service.AuthorService;
 import cs544.project.onlineshoppingstore.service.PublisherService;
 
 @Controller
@@ -46,8 +47,13 @@ public class PublisherController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String add(@Valid Publisher publisher, BindingResult result){
 		
-		if(result.hasErrors())
+		if(result.hasErrors()){
 			return "Publisher/addPublisher";
+		}
+		else if(result.getSuppressedFields().length > 0){
+			throw new RuntimeException("Attempting to bind and add disallowed field " 
+										+ StringUtils.arrayToCommaDelimitedString(result.getSuppressedFields()));
+		}
 		
 		publisherService.create(publisher);		
 		return "redirect:/publisher/";		
@@ -56,7 +62,7 @@ public class PublisherController {
 	@RequestMapping(value= "/update/{id}", method = RequestMethod.GET)
 	public String update(@PathVariable long id,Model model){
 		Publisher publisher = publisherService.get(id);
-		model.addAttribute(publisher);
+		model.addAttribute("publisher",publisher);
 		return "Publisher/updatePublisher";
 		
 	}
@@ -65,17 +71,21 @@ public class PublisherController {
 	public String update(@Valid Publisher publisher, @PathVariable long id, BindingResult result){
 		if(result.hasErrors())
 			return "redirect:/publisher/update/" + id;
-		
+		System.out.println("id " + publisher.getId());
 		publisherService.update(id, publisher);
 		return "redirect:/publisher/";  // when redirect we are returning url, not a view
 	}
 	
-	@RequestMapping(value = "/delete/{id}, method = Request.POST")
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
 	public String delete(@PathVariable long id){
 		
 		publisherService.delete(id);
-		return "redirect:/publisher";	
+		return "redirect:/publisher/";	
 		
+	}
+	@InitBinder
+	public void initialiseBinder(WebDataBinder binder){
+		binder.setDisallowedFields("id");
 	}
 	
 	
