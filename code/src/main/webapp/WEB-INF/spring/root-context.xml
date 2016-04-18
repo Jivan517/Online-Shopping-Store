@@ -25,7 +25,6 @@
 	<jpa:repositories base-package="cs544.project.onlineshoppingstore.dao"></jpa:repositories>
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.service"></context:component-scan>
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.utils"></context:component-scan>
-	
 	<bean id="propertyPlaceHolderConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"></bean>
 	
