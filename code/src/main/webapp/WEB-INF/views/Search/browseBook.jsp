@@ -54,9 +54,18 @@
 						</h5>
 						<p class = "text-primary">${book.authorName }</p>
 
-						<p class = "text-muted"><b>From:</b> $${book.price }</p>
-						
-						<c:if test="${book.quantity le 0 }"><p class = "text-danger"><b>Out of Stock</b> </p></c:if>
+						<c:if test="${book.quantity gt 0 }">
+							<p class="text-muted">
+								<b>From:</b> $${book.price }
+							</p>
+						</c:if>
+
+
+						<c:if test="${book.quantity le 0 }">
+							<p class="text-danger">
+								<b>Out of Stock</b>
+							</p>
+						</c:if>
 						
 					</div>
 				</div>

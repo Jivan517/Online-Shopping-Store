@@ -108,4 +108,9 @@ public class BookServiceImpl implements BookService {
 		return bookDao.findByFullTextSearch(searchText);
 	}
 
+	@Override
+	public List<Book> findFirst10ByOrderByPriceAsc() {
+		return bookDao.findFirst10ByOrderByPriceAsc();
+	}
+
 }

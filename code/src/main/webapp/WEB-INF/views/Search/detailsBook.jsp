@@ -35,8 +35,7 @@
 					</c:when>
 
 				</c:choose>
-				<br /> <br />
-				<small>
+				<br /> <br /> <small>
 					<p>Language: ${book.language }</p>
 					<p>ISBN: ${book.isbn }</p>
 					<p>Release Date: ${book.releaseDate }</p>
@@ -57,13 +56,24 @@
 				<h4>${book.bookType}&nbsp;<span class="label label-default">New</span>
 				</h4>
 				</p>
-				<p>
-				<h3 class="text-primary">$ ${book.price }</h3>
-				</p>
-				<p>
-					<button class="btn btn-primary" onsubmit="">Add to Cart</button>
-				</p>
+				<c:if test="${book.quantity gt 0 }">
 
+
+
+					<p>
+					<h3 class="text-primary">$ ${book.price }</h3>
+					</p>
+					<p>
+						<button class="btn btn-primary" onsubmit="">Add to Cart</button>
+					</p>
+				</c:if>
+				
+				<c:if test="${book.quantity le 0 }">
+							<h3><p class="text-danger">
+								<b>Out of Stock</b>
+							</p></h3>
+						</c:if>
+				
 			</div>
 
 		</div>

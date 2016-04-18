@@ -14,9 +14,9 @@ public interface BookDao extends JpaRepository<Book,Long>, BookDaoCustom{
 	
 	List<Book> findById(long id);
 	
-	/*List<Book> findByAuthor(String author);
+	List<Book> findFirst10ByOrderByPriceAsc();
 	
-	List<Book> findByCategory(String category);
+	/*List<Book> findByCategory(String category);
 	
 	List<Book> findByPublisher(String publisher);
 	
