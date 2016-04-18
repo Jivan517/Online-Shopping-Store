@@ -15,17 +15,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/Book/addBook.jsp" />
 
 	</definition>
-	<definition name="Publisher/listPublisher" extends="DefaultTemplate">
-		<put-attribute name="body"
-			value="/WEB-INF/views/Publisher/listPublisher.jsp" />
-	</definition>
-
-	<definition name="Publisher/addPublisher" extends="DefaultTemplate">
-
-		<put-attribute name="body"
-			value="/WEB-INF/views/Publisher/addPublisher.jsp" />
-	</definition>
-
+	
 
 	<definition name="Author/addAuthor" extends="DefaultTemplate">
 		<put-attribute name="body"
@@ -50,6 +40,48 @@
 	<definition name="Publisher/updatePublisher" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/Publisher/updatePublisher.jsp" />
+	</definition>
+	
+	<definition name="Publisher/listPublisher" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Publisher/listPublisher.jsp" />
+	</definition>
+
+	<definition name="Publisher/addPublisher" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/Publisher/addPublisher.jsp" />
+	</definition>
+	
+	<definition name="Admin/adminList" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/listAdmin.jsp" />
+	</definition>
+	<definition name="Admin/addAdmin" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/addAdmin.jsp" />
+	</definition>
+	<definition name="Admin/updateAdmin" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/updateAdmin.jsp" />
+	</definition>
+	<definition name="Customer/listCustomer" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/customer/listCustomer.jsp" />
+	</definition>
+	<definition name="Customer/addCustomer" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/customer/addCustomer.jsp" />
+	</definition>
+	<definition name="Customer/updateCustomer" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/customer/updateCustomer.jsp" />
 	</definition>
 
 	<definition name="Search/browseBook" extends="DefaultTemplate">

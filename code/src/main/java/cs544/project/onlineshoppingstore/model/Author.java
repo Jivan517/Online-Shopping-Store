@@ -1,9 +1,9 @@
 package cs544.project.onlineshoppingstore.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -33,7 +33,8 @@ public class Author {
 	private String phone;
 	
 	
-	@ManyToMany(mappedBy="authors")
+	@ManyToMany(mappedBy="authors", cascade=CascadeType.ALL)
+	
 	private List<Book> books = new ArrayList<Book>();
 
 

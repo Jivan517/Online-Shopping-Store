@@ -39,6 +39,7 @@ public class AuthorServiceImpl implements AuthorService{
 
 	@Override
 	public void update(long id, Author author) {
+		author.setId(id);
 		authorDao.save(author);		
 	}
 

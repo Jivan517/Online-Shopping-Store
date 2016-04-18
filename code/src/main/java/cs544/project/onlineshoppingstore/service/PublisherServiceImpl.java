@@ -23,7 +23,7 @@ public class PublisherServiceImpl implements PublisherService{
 
 	@Override
 	public Publisher get(long publisherId) {
-		return publisherDao.getOne(publisherId);
+		return publisherDao.findOne(publisherId);
 	}
 
 	@Override
@@ -39,6 +39,7 @@ public class PublisherServiceImpl implements PublisherService{
 
 	@Override
 	public void update(long id, Publisher publisher) {
+		publisher.setId(id);
 		publisherDao.save(publisher);
 	}
 

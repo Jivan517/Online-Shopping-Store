@@ -7,11 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.search.annotations.Field;
+import javax.persistence.CascadeType;
 
 @Entity
 public class Publisher {
@@ -27,11 +26,15 @@ public class Publisher {
 	
 	private  String phone;
 	
-	@OneToMany(mappedBy="publisher")
+	@OneToMany(mappedBy="publisher", cascade=CascadeType.ALL)
 	private List<Book> books = new ArrayList<Book>();
 
 	public long getId() {
-		return id;
+		return this.id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	public String getEmail() {
@@ -50,9 +53,7 @@ public class Publisher {
 		this.phone = phone;
 	}
 	
-	public void setId(long id) {
-		this.id = id;
-	}
+
 
 	public String getName() {
 		return name;
