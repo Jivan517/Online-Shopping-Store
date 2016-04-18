@@ -53,6 +53,36 @@
 			value="/WEB-INF/views/Publisher/addPublisher.jsp" />
 	</definition>
 	
+	<definition name="Admin/adminList" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/listAdmin.jsp" />
+	</definition>
+	<definition name="Admin/addAdmin" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/addAdmin.jsp" />
+	</definition>
+	<definition name="Admin/updateAdmin" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/updateAdmin.jsp" />
+	</definition>
+	<definition name="Customer/listCustomer" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/customer/listCustomer.jsp" />
+	</definition>
+	<definition name="Customer/addCustomer" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/customer/addCustomer.jsp" />
+	</definition>
+	<definition name="Customer/updateCustomer" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/customer/updateCustomer.jsp" />
+	</definition>
 
 
 </tiles-definitions>

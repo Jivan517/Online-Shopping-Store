@@ -31,7 +31,7 @@ public class CustomerController {
 		List<Customer> customerList = customerService.getAll();
 		model.addAttribute("customerList", customerList);
 
-		return "Customer/customerList";
+		return "Customer/listCustomer";
 	}
 	
 	@RequestMapping(value = "/customer/add", method = RequestMethod.GET)
