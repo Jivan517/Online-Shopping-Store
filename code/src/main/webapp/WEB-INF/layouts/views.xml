@@ -31,12 +31,12 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/Author/updateAuthor.jsp" />
 	</definition>
-	
+
 	<definition name="Book/updateBook" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/Book/updateBook.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/Book/updateBook.jsp" />
 	</definition>
-	
-	
+
+
 	<definition name="Publisher/updatePublisher" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/Publisher/updatePublisher.jsp" />
@@ -84,5 +84,16 @@
 			value="/WEB-INF/views/customer/updateCustomer.jsp" />
 	</definition>
 
+	<definition name="Search/browseBook" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Search/browseBook.jsp" />
+	</definition>
+	
+	
+	<definition name="Search/detailsBook" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Search/detailsBook.jsp" />
+	</definition>
+	
 
 </tiles-definitions>

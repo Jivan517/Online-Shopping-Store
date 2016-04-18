@@ -8,5 +8,4 @@
 	 <a href= "#">Privacy</a> | <a href= "#">Cookies</a>
 	
 </div>
-
-<!-- <div class = "col-md-2"></div> -->
+<br/><br/>

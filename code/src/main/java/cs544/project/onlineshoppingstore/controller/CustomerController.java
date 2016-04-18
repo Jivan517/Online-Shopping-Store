@@ -49,6 +49,7 @@ public class CustomerController {
 			return "Customer/addCustomer";
 		
 		customerService.create(customer);
+		System.out.println("Customer added");
 		return "redirect:/customer";
 	}
 	

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.search.annotations.Field;
 import javax.persistence.CascadeType;
 
 @Entity
@@ -17,7 +18,7 @@ public class Publisher {
 	@Id @GeneratedValue
 	private long id;
 	
-	
+	@Field
 	@NotNull(message = "Name can not be blank.")
 	private String name;
 	

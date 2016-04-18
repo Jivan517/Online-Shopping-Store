@@ -3,7 +3,12 @@ package cs544.project.onlineshoppingstore.service;
 import java.io.IOException;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
+import org.hibernate.search.jpa.FullTextEntityManager;
+import org.hibernate.search.jpa.Search;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +22,7 @@ import cs544.project.onlineshoppingstore.utils.IdToEntityConvertor;
 public class BookServiceImpl implements BookService {
 
 	private BookDao bookDao;
+	
 
 	@Autowired
 	public void setBookDao(BookDao bookDao) {
@@ -93,7 +99,18 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public List<Book> getAll() {
+		
 		return bookDao.findAll();
+	}
+
+	@Override
+	public List<Book> findByFullTextSearch(String searchText) {
+		return bookDao.findByFullTextSearch(searchText);
+	}
+
+	@Override
+	public List<Book> findFirst10ByOrderByPriceAsc() {
+		return bookDao.findFirst10ByOrderByPriceAsc();
 	}
 
 }

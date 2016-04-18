@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.search.annotations.Field;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -17,10 +18,11 @@ public class Author {
 	@Id @GeneratedValue
 	private long id;
 	
-		
+	@Field
 	@NotBlank(message = "First Name filed can not be null")
 	private String firstName;
 	
+	@Field
 	@NotBlank(message = "First Name filed can not be null")
 	private String lastName;
 	

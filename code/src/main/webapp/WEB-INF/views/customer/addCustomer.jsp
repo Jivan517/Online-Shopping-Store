@@ -91,6 +91,18 @@
 				</div>
 				
 			</div>
+			<br />
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Street</span>
+						<form:input path="shipingAddress.street" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="shipingAddress.street" class="alert alert-danger" role="alert" />
+				</div>
+			</div>
 			
 			<ui class="active"><h3>Biling Info</h3></ui>
 			<div class="row">
@@ -138,6 +150,20 @@
 				</div>
 				
 			</div>
+			<br />
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Street</span>
+						<form:input path="bilingAddress.street" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="bilingAddress.street" class="alert alert-danger" role="alert" />
+				</div>
+			</div>
+			
 			<br />
 	
 			<div>
