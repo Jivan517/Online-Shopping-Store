@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import cs544.project.onlineshoppingstore.model.Book;
 
-public interface BookDao extends JpaRepository<Book,Long>{
+public interface BookDao extends JpaRepository<Book,Long>, BookDaoCustom{
 	
 	List<Book> findByTitleLike(String title);
 	

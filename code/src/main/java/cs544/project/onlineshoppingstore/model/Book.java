@@ -2,6 +2,7 @@ package cs544.project.onlineshoppingstore.model;
 
 import java.util.Date;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -22,83 +23,106 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.IndexedEmbedded;
+import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
+@Indexed
 public class Book {
-	
-	
-	@Id @GeneratedValue
+
+	@Id
+	@GeneratedValue
 	private long id;
-	
-	@NotBlank(message ="ISBN can not be blank")
+
+	@NotBlank(message = "ISBN can not be blank")
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String isbn;
-	
-	@NotBlank(message ="Title can not be blank")
+
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	@NotBlank(message = "Title can not be blank")
 	private String title;
-	
+
+	@Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
+	@DateBridge(resolution = Resolution.DAY)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@NotNull(message ="Release Date can not be blank")
+	@NotNull(message = "Release Date can not be blank")
 	private Date releaseDate;
-	
+
 	@NotNull(message = "Price can not be blank")
 	private double price;
-	
+
 	@NotNull(message = "Price can not be blank")
 	private int quantity;
-	
+
 	@Max(value = 2000, message = "Page length can not be greater than 2000")
 	@NotNull(message = "Length can not be blank")
 	private int length;
-	
+
 	@NotBlank(message = "Dimensions can not be blank")
 	private String dimension;
-	
+
 	private transient MultipartFile cover;
-	
+
 	@Lob
 	@Column(name = "cover")
 	private byte[] bookCover;
-	
-	@NotBlank(message ="Description can not be blank")
-	private String description;	
-	
+
+	@Lob
+	@NotBlank(message = "Description can not be blank")
+	private String description;
+
 	@NotBlank(message = "Language can not be blank")
 	private String language;
-	
+
 	@Enumerated(EnumType.ORDINAL)
 	@NotNull(message = "Book type can not be blank")
 	private BookType bookType;
-	
+
 	@Enumerated(EnumType.ORDINAL)
 	@NotNull(message = "Book type can not be blank")
 	private BookCategory bookCategory;
-	
+
+	@IndexedEmbedded
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name="BookAuthor", joinColumns = @JoinColumn(name="bookId"),
-	inverseJoinColumns = @JoinColumn(name="authorId"))	
+	@JoinTable(name = "BookAuthor", joinColumns = @JoinColumn(name = "bookId"), inverseJoinColumns = @JoinColumn(name = "authorId"))
 	private List<Author> authors = new ArrayList<Author>();
-	
+
 	private transient List<Long> authorIds = new ArrayList<>();
-	
+
+	@IndexedEmbedded
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="publisherId")
+	@JoinColumn(name = "publisherId")
 	private Publisher publisher;
-	
+
 	private transient long publisherId;
-	
-	@OneToMany(mappedBy="book")
+
+	@OneToMany(mappedBy = "book")
 	private List<Review> reviews = new ArrayList<Review>();
-	
-	@OneToMany(mappedBy="book")
-	private List<Orderline>  orderlines;
+
+	@OneToMany(mappedBy = "book")
+	private List<Orderline> orderlines;
 
 	public byte[] getBookCover() {
 		return bookCover;
 	}
+
+	public String getUrl() {
+		if(this.bookCover != null && this.bookCover.length > 0)
+			return "data:image/png;base64," + Base64.getEncoder().encodeToString(this.bookCover);
+		return "";
+	}
+
+	
 
 	public void setBookCover(byte[] bookCover) {
 		this.bookCover = bookCover;
@@ -256,7 +280,13 @@ public class Book {
 		this.orderlines = orderlines;
 	}
 	
-	
-	
+	public String getAuthorName(){
+		
+		String name = "";
+		for(Author a : this.authors)
+			name += a.getFirstName() + " " + a.getLastName() + " ";
+		
+		return name;
+	}
 
 }

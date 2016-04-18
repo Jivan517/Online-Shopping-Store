@@ -11,13 +11,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.search.annotations.Field;
+
 @Entity
 public class Publisher {
 	
 	@Id @GeneratedValue
 	private long id;
 	
-	
+	@Field
 	@NotNull(message = "Name can not be blank.")
 	private String name;
 	

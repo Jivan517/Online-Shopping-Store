@@ -9,10 +9,7 @@
 <title>AJM - Online Book Store</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet" type="text/css" />
-<!-- <link rel="stylesheet" href="resources/css/screen.css" type="text/css" -->
-<!-- 	media="screen, projection"></link> -->
-<!-- <link rel="stylesheet" href="resources/css/print.css" type="text/css" -->
-<!-- 	media="print"></link> -->
+<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css"/>" type="text/css"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon" />
 <style>
 

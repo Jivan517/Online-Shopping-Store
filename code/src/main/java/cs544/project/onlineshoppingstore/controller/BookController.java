@@ -3,6 +3,7 @@ package cs544.project.onlineshoppingstore.controller;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cs544.project.onlineshoppingstore.model.Book;
 import cs544.project.onlineshoppingstore.model.BookCategory;
@@ -94,25 +96,9 @@ public class BookController {
 		Book book = bookService.get(id);
 		model.addAttribute("bookTypes", Arrays.asList(BookType.values()));
 		model.addAttribute("bookCategories", Arrays.asList(BookCategory.values()));
-		
-		System.out.println("After category");
-		
 		model.addAttribute("book", book);
-		
-		System.out.println("After Book");
-		
 		model.addAttribute("authors", authorService.getAll());
 		model.addAttribute("publishers", publisherService.getAll());
-		
-		System.out.println("After Pub");
-		
-		System.out.println(id);
-		System.out.println(book);
-		System.out.println(book.getTitle());
-		System.out.println(book.getId());
-		
-		System.out.println("After ID");
-		
 		return "Book/updateBook";
 	}
 
@@ -133,10 +119,13 @@ public class BookController {
 		return "redirect:/books";
 	}
 
+	@RequestMapping(value = "/books/delete/{id}", method = RequestMethod.POST)
 	public String delete(@PathVariable int id) {
 
 		bookService.delete(id);
 		return "redirect:/books";
 	}
 
+	
+	
 }
