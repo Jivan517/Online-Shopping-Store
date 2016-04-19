@@ -97,15 +97,10 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/Search/detailsBook.jsp" />
 	</definition>
-<<<<<<< HEAD
 	
 	<definition name="Search/shoppingCart" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/Search/shoppingCart.jsp" />
 	</definition>
-	
-=======
-
->>>>>>> 2fc79dc0958dcb655c1ed542e4f31f8ae5901988
 
 </tiles-definitions>
