@@ -16,10 +16,7 @@
 				<li class="active"><h3>/ Add Publisher</h3></li>
 			</ol>
 		</div>
-		<div>
-		<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">Logout</a>
-		</div>
-
+		
 		<br />
 
 		<form:form modelAttribute="publisher"

@@ -35,12 +35,12 @@
 								|Admin Panel <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								<li><a href="#">Admin User</a></li>
-								<li><a href="#">Author</a></li>
-								<li><a href="#">Publisher</a></li>
-								<li><a href="#">Book</a></li>
+								<li><a href="${pageContext.request.contextPath}/admin">Admin User</a></li>
+								<li><a href="${pageContext.request.contextPath}/author">Author</a></li>
+								<li><a href="${pageContext.request.contextPath}/publisher">Publisher</a></li>
+								<li><a href="${pageContext.request.contextPath}/books">Book</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#">Customer</a></li>
+								<li><a href="${pageContext.request.contextPath}/customer">Customer</a></li>
 
 							</ul>
 						</div></li>
