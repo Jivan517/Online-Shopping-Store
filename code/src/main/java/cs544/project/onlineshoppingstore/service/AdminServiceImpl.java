@@ -37,7 +37,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void create(Admin admin) {
 		admin.setRoles(Arrays.asList("ROLE_ADMIN"));
-		
+		admin.setStatus(true);
 		adminDao.save(admin);
 	}
 

@@ -48,6 +48,7 @@ public class CustomerServiceImpl implements CustomerService{
 	public void create(Customer customer) {
 		
 		customer.setRoles(Arrays.asList("ROLE_USER"));
+		customer.setStatus(true);
 		Customer customerPersisted = customerDao.save(customer);
 		BilingAddress billAddr = customer.getBilingAddress();
 		billAddr.setCustomer(customerPersisted);
