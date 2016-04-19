@@ -19,6 +19,10 @@ public class Order {
 	@NotNull(message = "Order date cannot be blank.")
 	private Date orderDate;
 	
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull(message = "Delivery date cannot be blank.")
+	private Date delivaryDate;
+	
 	@Enumerated(EnumType.STRING)
 	private OrderStatus orderStatus;
 	
@@ -54,6 +58,16 @@ public class Order {
 
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
+	}
+
+
+	public Date getDelivaryDate() {
+		return delivaryDate;
+	}
+
+
+	public void setDelivaryDate(Date delivaryDate) {
+		this.delivaryDate = delivaryDate;
 	}
 
 
