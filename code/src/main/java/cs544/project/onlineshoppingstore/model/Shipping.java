@@ -3,6 +3,7 @@ package cs544.project.onlineshoppingstore.model;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -22,7 +23,7 @@ public class Shipping {
 	@NotNull(message = "Shipping charge cannot be blank.")
 	private double shippingCharge;
 	
-	@OneToOne()
+	@OneToOne(fetch =FetchType.EAGER)
 	@JoinColumn(name ="orderId")
 	private Order order;
 

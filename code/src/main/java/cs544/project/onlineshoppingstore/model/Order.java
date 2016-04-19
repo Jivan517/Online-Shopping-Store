@@ -36,7 +36,7 @@ public class Order {
 	private List<Orderline> orderlines = new ArrayList<>();
 	
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "customerId")
 	private Customer customer;
 
