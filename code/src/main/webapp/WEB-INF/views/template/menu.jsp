@@ -2,17 +2,6 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!-- <ul style="list-style:none;line-height:28px;"> -->
-
-<%-- 	<li><spring:url value="/home" var="homeUrl" htmlEscape="true" /> --%>
-<%-- 		<a href="${homeUrl}">Home</a> --%>
-<!-- 	</li> -->
-
-<%-- 	<li><spring:url value="/home" var="personListUrl" htmlEscape="true" /> --%>
-<%-- 		<a href="${personListUrl}">Product</a> --%>
-<!-- 	</li> -->
-
-<!-- </ul> -->
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -45,7 +34,7 @@
        </sec:authorize>          
      
       <sec:authorize access="isAnonymous()">
-      	<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      	 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
      	 <li><a href="${pageContext.request.contextPath}/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </sec:authorize>      
      
