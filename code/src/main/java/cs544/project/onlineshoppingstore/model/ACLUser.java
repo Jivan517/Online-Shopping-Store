@@ -39,6 +39,14 @@ public class ACLUser {
 		return id;
 	}
 
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
 	public void setId(long id) {
 		this.id = id;
 	}

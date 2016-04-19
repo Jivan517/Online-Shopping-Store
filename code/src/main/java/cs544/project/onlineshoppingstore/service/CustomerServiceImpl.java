@@ -1,5 +1,6 @@
 package cs544.project.onlineshoppingstore.service;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,12 +46,15 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public void create(Customer customer) {
+		
+		customer.setRoles(Arrays.asList("ROLE_USER"));
 		Customer customerPersisted = customerDao.save(customer);
 		BilingAddress billAddr = customer.getBilingAddress();
 		billAddr.setCustomer(customerPersisted);
 		bilingAddressDao.save(billAddr);
 		ShippingAddress shipAddr = customer.getShipingAddress();
 		shipAddr.setCustomer(customerPersisted);
+		
 		shippingAddressDao.save(shipAddr);
 	
 	}
