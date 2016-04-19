@@ -19,10 +19,7 @@
 		<div class="page-header ">
 			<h3>Publishers List</h3>
 		</div>
-		<div>
-		<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">Logout</a>
-		</div>
-
+		
 		<div>
 			<a href="${pageContext.request.contextPath}/publisher/add/" class="btn btn-primary"> Add publisher</a>
 		</div>

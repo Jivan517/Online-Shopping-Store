@@ -23,9 +23,7 @@
 		<div class="page-header ">
 			<h3>Authors List</h3>
 		</div>
-		<div>
-		<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">Logout</a>
-		</div>
+		
 
 		<div>
 			<a href="${pageContext.request.contextPath}/author/add/" class="btn btn-primary"> Add author</a>
