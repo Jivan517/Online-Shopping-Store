@@ -15,7 +15,6 @@
 <!-- </ul> -->
 
 <nav class="navbar navbar-inverse">
-<<<<<<< HEAD
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">AJM - Online Book Store</a>
@@ -49,7 +48,6 @@
 					Login</a></li>
 		</ul>
 	</div>
-=======
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">AJM - Online Book Store</a>
@@ -90,5 +88,4 @@
       
     </ul>
   </div>
->>>>>>> 2fc79dc0958dcb655c1ed542e4f31f8ae5901988
 </nav>
