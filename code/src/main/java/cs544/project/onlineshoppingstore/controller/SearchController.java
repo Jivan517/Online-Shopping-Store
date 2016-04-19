@@ -1,10 +1,12 @@
 package cs544.project.onlineshoppingstore.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,16 +53,22 @@ public class SearchController {
 
 	@RequestMapping(value = {
 			"/addToCart/{id}" }, method = RequestMethod.POST, produces = "application/json")
-	public @ResponseBody String addToCart(@PathVariable int id) {
+	public @ResponseBody String addToCart(@PathVariable int id, ModelMap model) {
 
+		if(!model.containsAttribute("cart")){
+			model.addAttribute("cart", new ArrayList<Integer>());
+		}
+		
+		List<Integer> cart = (List<Integer>) model.get("cart");
+		if(!cart.contains(id))
+			cart.add(id);
+		
+		model.put("cart",cart);
+		
 		System.out.println(id);
 		return "";
 	}
 
-	@RequestMapping(value = { "/shoppingcart" }, method = RequestMethod.GET)
-	public String shoppingCart(Model model) {
-
-		return "Search/shoppingCart";
-	}
+	
 
 }

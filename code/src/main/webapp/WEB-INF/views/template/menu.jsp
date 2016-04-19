@@ -13,25 +13,37 @@
 <!-- </ul> -->
 
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">AJM - Online Book Store</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/onlineshoppingstore">Home</a></li>
-      <li><a href="#">All Categories</a></li>
-      <li><a href="#">Children's</a></li> 
-      <li><a href="#">Teens</a></li> 
-      <li><a href="#">Literature & Fiction</a></li> 
-      <li><a href="#">Mystery & Thriller</a></li>
-      <li><a href="#">Sci-Fi & Fantasy</a></li>
-      <li><a href="#">Romance</a></li> 
-      
-      
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-  </div>
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">AJM - Online Book Store</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="/onlineshoppingstore">Home</a></li>
+			<li><a href="#">All Categories</a></li>
+			<li><a href="#">Children's</a></li>
+			<li><a href="#">Teens</a></li>
+			<li><a href="#">Literature & Fiction</a></li>
+			<li><a href="#">Mystery & Thriller</a></li>
+			<li><a href="#">Sci-Fi & Fantasy</a></li>
+			<li><a href="#">Romance</a></li>
+
+
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<form action="shoppingcart" method = "GET">
+					<button class="btn btn-primary btn-lg"
+					style="margin: 2px;" type="submit">
+					<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+					Cart
+				</button>
+				</form>
+				
+			</li>
+			<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+					Sign Up</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+					Login</a></li>
+		</ul>
+	</div>
 </nav>

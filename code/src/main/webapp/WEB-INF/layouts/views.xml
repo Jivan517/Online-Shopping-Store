@@ -95,5 +95,10 @@
 			value="/WEB-INF/views/Search/detailsBook.jsp" />
 	</definition>
 	
+	<definition name="Search/shoppingCart" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Search/shoppingCart.jsp" />
+	</definition>
+	
 
 </tiles-definitions>
