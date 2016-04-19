@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import cs544.project.onlineshoppingstore.model.BilingAddress;
 import cs544.project.onlineshoppingstore.model.Customer;
 import cs544.project.onlineshoppingstore.service.CustomerService;
 
@@ -25,31 +27,42 @@ public class CustomerController {
 		this.customerService = customerService;
 	}
 	
-	@RequestMapping(value = "/customer", method = RequestMethod.GET)
+	@RequestMapping(value = {"/customer", "/Customer"}, method = RequestMethod.GET)
 	public String index(Model model) {
 
 		List<Customer> customerList = customerService.getAll();
 		model.addAttribute("customerList", customerList);
 
-		return "Customer/listCustomer";
+		return "customer/listCustomer";
 	}
 	
 	@RequestMapping(value = "/customer/add", method = RequestMethod.GET)
 	public String add(Model model) {
 		
 		model.addAttribute("customer", new Customer());
-		return "Customer/addCustomer";
+		return "customer/addCustomer";
 	}
 
 	@RequestMapping(value = "/customer/add", method = RequestMethod.POST)
 	public String add(@Valid Customer customer, BindingResult result) {
 
 		System.out.println(result.hasErrors());
-		if(result.hasErrors())
-			return "Customer/addCustomer";
 		
+		System.out.println("ErrorCount" + result.getErrorCount());
+		System.out.println(result.getAllErrors());
+		List<ObjectError> errors = result.getAllErrors();
+		for(ObjectError e: errors){
+			System.out.println(e.getDefaultMessage());
+		}
+		
+		
+		if(result.hasErrors())
+			return "customer/addCustomer";
+		System.out.println(customer.getBilingAddress().getCountry());
 		customerService.create(customer);
+	
 		System.out.println("Customer added");
+		
 		return "redirect:/customer";
 	}
 	
@@ -59,7 +72,7 @@ public class CustomerController {
 		Customer customer = customerService.get(id);
 		model.addAttribute("customer", customer);
 		
-		return "Customer/updateCustomer";
+		return "customer/updateCustomer";
 	}
 	
 	@RequestMapping(value = "/customer/update/{id}", method = RequestMethod.POST)

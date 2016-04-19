@@ -7,14 +7,25 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import cs544.project.onlineshoppingstore.dao.BillingAddressDao;
 import cs544.project.onlineshoppingstore.dao.CustomerDao;
+import cs544.project.onlineshoppingstore.dao.ShippingAddressDao;
+import cs544.project.onlineshoppingstore.model.BilingAddress;
 import cs544.project.onlineshoppingstore.model.Customer;
+import cs544.project.onlineshoppingstore.model.ShippingAddress;
 
 @Transactional(propagation = Propagation.REQUIRED)
 @Component
 public class CustomerServiceImpl implements CustomerService{
 
 	private CustomerDao customerDao;
+	
+	@Autowired
+	private ShippingAddressDao shippingAddressDao;
+	
+	@Autowired
+	private BillingAddressDao bilingAddressDao;
+	
 	
 	@Autowired
 	public void setCustomerDao(CustomerDao customerDao)
@@ -34,19 +45,41 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public void create(Customer customer) {
-		customerDao.save(customer);
-		
+		Customer customerPersisted = customerDao.save(customer);
+		BilingAddress billAddr = customer.getBilingAddress();
+		billAddr.setCustomer(customerPersisted);
+		bilingAddressDao.save(billAddr);
+		ShippingAddress shipAddr = customer.getShipingAddress();
+		shipAddr.setCustomer(customerPersisted);
+		shippingAddressDao.save(shipAddr);
+	
 	}
 
     @Override
 	public void update(long id, Customer updatedCustomer) {
-	    customerDao.save(updatedCustomer);
+    	
+    	System.out.println(updatedCustomer.getShipingAddress().getId());
+    	System.out.println(updatedCustomer.getBilingAddress().getId());
+    	updatedCustomer.setId(id);
+    	BilingAddress billAddr = updatedCustomer.getBilingAddress();
+		billAddr.setCustomer(updatedCustomer);
+		bilingAddressDao.save(billAddr);
+		ShippingAddress shipAddr = updatedCustomer.getShipingAddress();
+		shipAddr.setCustomer(updatedCustomer);
+		shippingAddressDao.save(shipAddr);
+    	Customer customerPersisted = customerDao.save(updatedCustomer);
+		
 		
 	}
 
 	@Override
 	public void delete(long id) {
-		customerDao.delete(id);
+		Customer customerPersisted = customerDao.getOne(id);
+		BilingAddress billAddr = customerPersisted.getBilingAddress();
+		bilingAddressDao.delete(billAddr);
+		ShippingAddress shipAddr = customerPersisted.getShipingAddress();
+		shippingAddressDao.delete(shipAddr);
+		customerDao.delete(customerPersisted);
 		
 	}
 

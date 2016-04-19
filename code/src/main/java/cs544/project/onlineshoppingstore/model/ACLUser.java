@@ -16,13 +16,13 @@ public class ACLUser {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	
 	@NotBlank(message = "Username cannot be blank.")
 	private String username;
 	
 	@NotBlank(message = "Password cannot be blank.")
 	private String password;
 	
-	@NotNull(message = "Status cannot be blank.")
 	private Boolean status;
 
 	public long getId() {
