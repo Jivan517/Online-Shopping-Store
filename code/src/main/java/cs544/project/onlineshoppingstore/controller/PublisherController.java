@@ -27,7 +27,7 @@ public class PublisherController {
 		this.publisherService = publisherService;
 	}
 	
-	@RequestMapping(value = {"/","/list","/publishers","/all"})
+	@RequestMapping(value = {"","/","/list","/publishers","/all"})
 	public String list(Model model){
 		
 		model.addAttribute("publisherList", publisherService.getAll());
