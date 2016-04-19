@@ -24,27 +24,55 @@
 			action="${pageContext.request.contextPath}/admin/update/${admin.id}" method="post"
 			enctype="multipart/form-data">
 
+				<ui class="active"><h3>New Credentials</h3></ui>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">New Username</span>
+						<form:input path="username" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="username" class="alert alert-danger" role="alert" />
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">New Password</span>
+						<form:input type="password" path="password" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="password" class="alert alert-danger" role="alert" />
+				</div>
+			</div>
+
+
+		<ui class="active"><h3>New Personal Info</h3></ui>
 			<div class="row">
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Name</span>
-						<form:input path="title" class="form-control" value = "${admin.name }" />
+						<form:input path="name" class="form-control" />
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="name" cssStyle="color:red" />
+					<form:errors path="name" class="alert alert-danger" role="alert" />
 				</div>
 
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Email</span>
-						<form:input path="isbn" class="form-control" value = "${admin.email }"/>
+						<form:input path="email" class="form-control" />
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="email" cssStyle="color:red" />
+					<form:errors path="email" class="alert alert-danger" role="alert" />
 				</div>
 			</div>
+			<br />
 			<br />
 
 			<div>
