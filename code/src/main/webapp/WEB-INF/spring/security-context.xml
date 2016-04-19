@@ -30,13 +30,23 @@
 	<!-- <beans:bean id="myAuthenticationSuccessHandler"
         class="com.amt.petclinic.security.MySimpleUrlAuthenticationSuccessHandler" /> -->
 
-<authentication-manager>
+<!--  <authentication-manager> -->
+<!-- 	  <authentication-provider> -->
+<!-- 		<jdbc-user-service data-source-ref="dataSource" -->
+<!-- 		  users-by-username-query= -->
+<!-- 		    "select username,password, status from users where username=?" -->
+<!-- 		  authorities-by-username-query= -->
+<!-- 		    "select username, role from user_roles where username =?  " /> -->
+<!-- 	  </authentication-provider> -->
+<!-- 	</authentication-manager> -->
+	
+	<authentication-manager>
 	  <authentication-provider>
 		<jdbc-user-service data-source-ref="dataSource"
 		  users-by-username-query=
-		    "select username,password, enabled from users where username=?"
+		    "select username,password, status from acluser where username=?"
 		  authorities-by-username-query=
-		    "select username, role from user_roles where username =?  " />
+		    "select a.username, ar.roles from acluser a INNER JOIN acluser_roles ar  ON a.id = ar.aclUser_id where a.username =?  " />
 	  </authentication-provider>
 	</authentication-manager>
 
