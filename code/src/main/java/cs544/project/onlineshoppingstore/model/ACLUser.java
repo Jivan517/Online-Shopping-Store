@@ -3,6 +3,7 @@ package cs544.project.onlineshoppingstore.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +25,7 @@ public class ACLUser {
 	private long id;
 	
 	@NotBlank(message = "Username cannot be blank.")
+	@Column(unique =true)
 	private String username;
 	
 	@NotBlank(message = "Password cannot be blank.")
