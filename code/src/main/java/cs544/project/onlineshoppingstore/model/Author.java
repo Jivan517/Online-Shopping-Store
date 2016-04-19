@@ -8,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -18,16 +21,17 @@ public class Author {
 	private long id;
 	
 		
-	@NotBlank(message = "First Name filed can not be null")
+	@NotBlank(message = "First Name filed can not be Empty")
 	private String firstName;
 	
-	@NotBlank(message = "First Name filed can not be null")
+	@NotBlank(message = "First Name filed can not be Empty")
 	private String lastName;
 	
-	@NotBlank(message = "Email field can not be empty")
+	@Email(message = "Email field not correct")
 	private String email;
 	
-	@NotBlank(message = "Phone field can not be empty")
+	@Pattern(regexp="[0-9]+",message = "Only numbers allowed.")
+	@Size(min=4,max=10)
 	private String phone;
 	
 	

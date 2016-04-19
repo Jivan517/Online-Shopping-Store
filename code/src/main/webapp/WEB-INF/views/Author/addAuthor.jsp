@@ -11,11 +11,14 @@
 
 <div class="container">
 		<div class="page-header ">
-
-			<ol class="breadcrumb">
+			<ol class="breadcrumb">				
 				<li><a href="${pageContext.request.contextPath}/author/"><h3>Authors </h3></a></li>
 				<li class="active"><h3>/ Add Author</h3></li>
 			</ol>
+		</div>
+		<div>
+		<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">Logout</a>
+						
 		</div>
 
 		<br />
@@ -31,7 +34,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="firstName" class="alert alert-danger" role="alert" />
+					<form:errors path="firstName" cssStyle="color:red"/>
 				</div>
 
 				
@@ -46,7 +49,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="lastName" class="alert alert-danger" role="alert" />
+					<form:errors path="lastName" cssStyle="color:red"/>
 				</div>
 
 			</div>
@@ -59,7 +62,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="email" class="alert alert-danger" role="alert" />
+					<form:errors path="email" cssStyle="color:red"/>
 				</div>
 
 				
@@ -73,7 +76,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="phone" class="alert alert-danger"
+					<form:errors path="phone" cssStyle="color:red"
 						role="alert" />
 				</div>
 

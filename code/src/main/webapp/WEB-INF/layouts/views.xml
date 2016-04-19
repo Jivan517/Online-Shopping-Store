@@ -53,6 +53,12 @@
 			value="/WEB-INF/views/Publisher/addPublisher.jsp" />
 	</definition>
 	
+	<definition name="Account/login" extends="DefaultTemplate">
+
+	<put-attribute name="body"
+			value="/WEB-INF/views/Account/login.jsp" />
+	</definition>
+	
 
 
 </tiles-definitions>
