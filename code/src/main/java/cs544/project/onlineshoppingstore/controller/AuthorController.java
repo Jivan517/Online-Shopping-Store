@@ -51,7 +51,7 @@ public class AuthorController {
 	public String add(@Valid Author author, BindingResult result){
 		
 		if(result.hasErrors()){
-			return "redirect:/author/add";
+			return "Author/addAuthor";
 		}
 		else if(result.getSuppressedFields().length > 0){
 			throw new RuntimeException("Attempting to bind and add disallowed field " 

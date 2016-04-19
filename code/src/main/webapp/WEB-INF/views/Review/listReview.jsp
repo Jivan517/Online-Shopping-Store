@@ -24,10 +24,6 @@
 			<h3>Authors List</h3>
 		</div>
 		<div>
-		<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">Logout</a>
-		</div>
-
-		<div>
 			<a href="${pageContext.request.contextPath}/author/add/" class="btn btn-primary"> Add author</a>
 		</div>
 	
@@ -37,10 +33,10 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Phone</th>
-						<th>Email</th>
+						<th>Book Title</th>
+						<th>ISBN</th>
+						<th>Review</th>
+						
 						
 					</tr>
 				</thead>
@@ -49,7 +45,7 @@
 						<td>${author.firstName}</td>
 						<td>${author.lastName}</td>
 						<td>${author.phone}</td>
-						<td>${author.email}</td>
+						
 						
 						<td>
 							<form action="${pageContext.request.contextPath}/author/update/${author.id}" method="get">

@@ -3,12 +3,15 @@ package cs544.project.onlineshoppingstore.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.search.annotations.Field;
 import javax.persistence.CascadeType;
 
@@ -18,12 +21,17 @@ public class Publisher {
 	@Id @GeneratedValue
 	private long id;
 	
+	
+	@NotBlank(message = "Name can not be blank.")
 	@Field
-	@NotNull(message = "Name can not be blank.")
 	private String name;
 	
+	@Email(message = "Invalid Email")
+	@NotBlank(message = "Email can not be blank.")
 	private String email;
 	
+	
+	@NotBlank(message = "Phone can not be blank.")
 	private  String phone;
 	
 	@OneToMany(mappedBy="publisher", cascade=CascadeType.ALL)

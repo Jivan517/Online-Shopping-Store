@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" 
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/tx
@@ -17,17 +15,25 @@
     http://www.springframework.org/schema/data/repository/spring-repository.xsd
     http://www.springframework.org/schema/data/jpa
     http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<context:property-placeholder location="classpath:local.properties" />
-	<context:annotation-config/>
+	<context:property-placeholder location="classpath:messages.properties" />
+	<context:annotation-config />
 	<jpa:repositories base-package="cs544.project.onlineshoppingstore.dao"></jpa:repositories>
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.service"></context:component-scan>
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.utils"></context:component-scan>
+
+	<bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
+
 	<bean id="propertyPlaceHolderConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"></bean>
-	
+
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory">
 		</property>
@@ -36,7 +42,7 @@
 	<bean id="hibernateJpaVendorAdapter"
 		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 	</bean>
-	
+
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -56,15 +62,17 @@
 		</property>
 		<property name="packagesToScan" value="cs544.project.onlineshoppingstore.model" />
 	</bean>
-	
-	<bean id = "dataSource" class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name = "driverClassName" value = "${db.driver}"></property>
-		<property name = "url" value = "${db.url}"></property>
-		<property name = "username" value = "${db.username}"/>
-		<property name = "password" value = "${db.password}"></property>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${db.driver}"></property>
+		<property name="url" value="${db.url}"></property>
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}"></property>
 	</bean>
-	
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="250000"/>
-</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="250000" />
+	</bean>
 </beans>

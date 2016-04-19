@@ -8,39 +8,48 @@
 	<title>Welcome | Online Book Store</title>
 </head>
 <body>
+
 <div class="container">
 		<div class="page-header ">
-
-			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/publisher/"><h3>Publishers </h3></a></li>
-				<li class="active"><h3>/ Add Publisher</h3></li>
+			<ol class="breadcrumb">				
+				<li><a href="${pageContext.request.contextPath}/reviews/"><h3>Review </h3></a></li>
+				<li class="active"><h3>/ Add Review</h3></li>
 			</ol>
 		</div>
-		<div>
-		<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">Logout</a>
-		</div>
-
+		
 		<br />
 
-		<form:form modelAttribute="publisher"
-			action="${pageContext.request.contextPath}/publisher/add" method="post">
+		<form:form modelAttribute="author"
+			action="${pageContext.request.contextPath}/author/add" method="post">
 
 			<div class="row">
 				<div class="col-md-4">
 					<div class="input-group">
-						<span class="input-group-addon" id="basic-addon1"> Name</span>
-						<form:input path="name" class="form-control" />
+						<span class="input-group-addon" id="basic-addon1">Book Title</span>
+						<form:input path="firstName" class="form-control" />
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="name" cssStyle="color:red" />
+					<form:errors path="firstName" cssStyle="color:red"/>
 				</div>
 
 				
 			</div>
 			<br />
 
-			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Last Name</span>
+						<form:input path="lastName" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="lastName" cssStyle="color:red"/>
+				</div>
+
+			</div>
+			<br />
 			<div class="row">
 				<div class="col-md-4">
 					<div class="input-group">
@@ -49,7 +58,7 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="email" cssStyle="color:red" />
+					<form:errors path="email" cssStyle="color:red"/>
 				</div>
 
 				
@@ -63,7 +72,8 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="phone" cssStyle="color:red" />
+					<form:errors path="phone" cssStyle="color:red"
+						role="alert" />
 				</div>
 
 				

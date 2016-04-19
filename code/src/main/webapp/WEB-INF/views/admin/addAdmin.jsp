@@ -22,6 +22,32 @@
 		<form:form modelAttribute="admin"
 			action="${pageContext.request.contextPath}/admin/add" method="post">
 
+		<ui class="active"><h3>Credentials</h3></ui>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Username</span>
+						<form:input path="username" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="username" class="alert alert-danger" role="alert" />
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Password</span>
+						<form:input type ="password" path="password" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="password" class="alert alert-danger" role="alert" />
+				</div>
+			</div>
+
+		<ui class="active"><h3>Personal Info</h3></ui>
 			<div class="row">
 				<div class="col-md-4">
 					<div class="input-group">
