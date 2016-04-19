@@ -58,16 +58,26 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
 	public void update(long id, Customer updatedCustomer) {
     	
-    	System.out.println(updatedCustomer.getShipingAddress().getId());
-    	System.out.println(updatedCustomer.getBilingAddress().getId());
     	updatedCustomer.setId(id);
+    	
     	BilingAddress billAddr = updatedCustomer.getBilingAddress();
 		billAddr.setCustomer(updatedCustomer);
+		BilingAddress prevBillingAddr = bilingAddressDao.findByCustomer(updatedCustomer);
+		System.out.println(prevBillingAddr.getId());
+		billAddr.setId(prevBillingAddr.getId());
 		bilingAddressDao.save(billAddr);
+		
+		
 		ShippingAddress shipAddr = updatedCustomer.getShipingAddress();
 		shipAddr.setCustomer(updatedCustomer);
+		ShippingAddress prevshippingAddr = shippingAddressDao.findByCustomer(updatedCustomer);
+		System.out.println(prevshippingAddr.getId());
+		shipAddr.setId(prevshippingAddr.getId());
+		
 		shippingAddressDao.save(shipAddr);
-    	Customer customerPersisted = customerDao.save(updatedCustomer);
+    	
+		
+		Customer customerPersisted = customerDao.save(updatedCustomer);
 		
 		
 	}
