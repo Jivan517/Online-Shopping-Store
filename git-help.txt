@@ -1,0 +1,9 @@
+1) If .gitignore not working
+
+git rm -r --cached .
+git add .
+git commit -m "fixed untracked files"
+
+2)Remember username & password
+
+git config --global credential.helper wincred

@@ -12,8 +12,8 @@
 		<div class="page-header ">
 
 			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/customer"><h3>Books </h3></a></li>
-				<li class="active"><h3>/ Add Book</h3></li>
+				<li><a href="${pageContext.request.contextPath}/customer"><h3>Customer </h3></a></li>
+				<li class="active"><h3>/ Add Customer</h3></li>
 			</ol>
 		</div>
 
@@ -22,6 +22,33 @@
 		<form:form modelAttribute="customer"
 			action="${pageContext.request.contextPath}/customer/add" method="post">
 
+		<ui class="active"><h3>Credentials</h3></ui>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Username</span>
+						<form:input path="username" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="username" class="alert alert-danger" role="alert" />
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Password</span>
+						<form:input type="password" path="password" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="password" class="alert alert-danger" role="alert" />
+				</div>
+			</div>
+
+
+		<ui class="active"><h3>Personal Info</h3></ui>
 			<div class="row">
 				<div class="col-md-4">
 					<div class="input-group">
@@ -44,25 +71,25 @@
 				</div>
 			</div>
 			<br />
-
+			<ui class="active"><h3>Shipping Info</h3></ui>
 			<div class="row">
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Country</span>
-						<form:input path="country" class="form-control" />
+						<form:input path="shipingAddress.country" class="form-control" />
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="country" class="alert alert-danger" role="alert" />
+					<form:errors path="shipingAddress.country" class="alert alert-danger" role="alert" />
 				</div>
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">State</span>
-						<form:input path="state" class="form-control" />
+						<form:input path="shipingAddress.state" class="form-control" />
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="state" class="alert alert-danger"
+					<form:errors path="shipingAddress.state" class="alert alert-danger"
 						role="alert" />
 				</div>
 			</div>
@@ -71,24 +98,99 @@
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">City</span>
-						<form:input path="city" class="form-control" />
+						<form:input path="shipingAddress.city" class="form-control" />
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="city" class="alert alert-danger" role="alert" />
+					<form:errors path="shipingAddress.city" class="alert alert-danger" role="alert" />
 				</div>
 
 				<div class="col-md-4">
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon1">Zip</span>
-						<form:input path="zip" class="form-control" />
+						<form:input path="shipingAddress.zip" class="form-control" />
 					</div>
 				</div>
 				<div class="col-md-2">
-					<form:errors path="zip" class="alert alert-danger"
+					<form:errors path="shipingAddress.zip" class="alert alert-danger"
+						role="alert" />
+				</div>
+				
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Street</span>
+						<form:input path="shipingAddress.street" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="shipingAddress.street" class="alert alert-danger" role="alert" />
+				</div>
+			</div>
+			
+			<ui class="active"><h3>Biling Info</h3></ui>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Country</span>
+						<form:input path="bilingAddress.country" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="bilingAddress.country" class="alert alert-danger" role="alert" />
+				</div>
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">State</span>
+						<form:input path="bilingAddress.state" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="bilingAddress.state" class="alert alert-danger"
 						role="alert" />
 				</div>
 			</div>
+			<br />
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">City</span>
+						<form:input path="bilingAddress.city" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="bilingAddress.city" class="alert alert-danger" role="alert" />
+				</div>
+
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Zip</span>
+						<form:input path="bilingAddress.zip" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="bilingAddress.zip" class="alert alert-danger"
+						role="alert" />
+				</div>
+				
+			</div>
+			<br />
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">Street</span>
+						<form:input path="bilingAddress.street" class="form-control" />
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form:errors path="bilingAddress.street" class="alert alert-danger" role="alert" />
+				</div>
+				
+			</div>
+			
 			<br />
 	
 			<div>

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import cs544.project.onlineshoppingstore.model.Admin;
 import cs544.project.onlineshoppingstore.service.AdminService;
 
+@Controller
 public class AdminController {
 	
 	@Autowired
@@ -29,22 +31,23 @@ public class AdminController {
 		List<Admin> adminList = adminService.getAll();
 		model.addAttribute("adminList", adminList);
 
-		return "Admin/adminList";
+		return "admin/listAdmin";
 	}
 	
 	@RequestMapping(value = "/admin/add", method = RequestMethod.GET)
 	public String add(Model model) {
 		
 		model.addAttribute("admin", new Admin());
-		return "Admin/addAdmin";
+		return "admin/addAdmin";
 	}
 
 	@RequestMapping(value = "/admin/add", method = RequestMethod.POST)
 	public String add(@Valid Admin admin, BindingResult result) {
 
 		System.out.println(result.hasErrors());
+		
 		if(result.hasErrors())
-			return "Admin/addAdmin";
+			return "admin/addAdmin";
 		
 		adminService.create(admin);
 		return "redirect:/admin";
@@ -56,7 +59,7 @@ public class AdminController {
 		Admin admin = adminService.get(id);
 		model.addAttribute("admin", admin);
 		
-		return "Admin/updateAdmin";
+		return "admin/updateAdmin";
 	}
 	
 	@RequestMapping(value = "/admin/update/{id}", method = RequestMethod.POST)

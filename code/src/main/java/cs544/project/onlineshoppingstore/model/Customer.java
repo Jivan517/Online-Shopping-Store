@@ -19,7 +19,7 @@ public class Customer extends ACLUser{
 	private ShippingAddress shipingAddress;
 	
 	@OneToOne(mappedBy="customer")
-	private BilingAddress bilingAdrress;
+	private BilingAddress bilingAddress;
 	
 	@OneToMany(mappedBy="customer")
 	private List<Order> order;
@@ -43,12 +43,12 @@ public class Customer extends ACLUser{
 		this.shipingAddress = shipingAddress;
 	}
 
-	public BilingAddress getBilingAdrress() {
-		return bilingAdrress;
+	public BilingAddress getBilingAddress() {
+		return bilingAddress;
 	}
 
-	public void setBilingAdrress(BilingAddress bilingAdrress) {
-		this.bilingAdrress = bilingAdrress;
+	public void setBilingAddress(BilingAddress bilingAddress) {
+		this.bilingAddress = bilingAddress;
 	}
 
 	public List<Order> getOrder() {

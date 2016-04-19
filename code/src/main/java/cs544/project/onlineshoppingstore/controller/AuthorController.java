@@ -30,7 +30,7 @@ public class AuthorController {
 		this.authorService = authorService;
 	}
 	
-	@RequestMapping(value = {"/","/list","/auhtors","/all"})
+	@RequestMapping(value = {"","/list","/auhtors","/all"})
 	public String list(Model model){
 		
 		model.addAttribute("authorList", authorService.getAll());

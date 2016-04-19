@@ -14,5 +14,7 @@ public interface BookService {
 	List<Book> findById(long isbn);
 	Book get(long id);
 	List<Book> getAll();
+	List<Book> findByFullTextSearch(String searchText);
+	List<Book> findFirst10ByOrderByPriceAsc();
 
 }

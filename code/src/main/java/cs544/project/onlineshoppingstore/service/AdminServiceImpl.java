@@ -3,16 +3,22 @@ package cs544.project.onlineshoppingstore.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import cs544.project.onlineshoppingstore.dao.AdminDao;
 import cs544.project.onlineshoppingstore.model.Admin;
 
+@Transactional(propagation = Propagation.REQUIRED)
+@Component
 public class AdminServiceImpl implements AdminService{
+	
 	
 	private AdminDao adminDao;
 	
 	@Autowired
-	public void setCustomerDao(AdminDao adminDao)
+	public void setAdminDao(AdminDao adminDao)
 	{
 		this.adminDao=adminDao;
 	}

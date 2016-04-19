@@ -49,6 +49,14 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>${org.hibernate-version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-search-orm</artifactId>
+			<version>5.5.2.Final</version>
+		</dependency>
+
+
 		<!-- end: hibernate dependencies -->
 
 		<!-- start: apache tiles dependencies -->

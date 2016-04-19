@@ -12,6 +12,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.search.annotations.Field;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -22,12 +23,14 @@ public class Author {
 	
 		
 	@NotBlank(message = "First Name filed can not be Empty")
+	@Field
 	private String firstName;
 	
+	@Field
 	@NotBlank(message = "First Name filed can not be Empty")
 	private String lastName;
 	
-	@Email(message = "Email field not correct")
+	@Email(message = "Email field not valid")
 	private String email;
 	
 	@Pattern(regexp="[0-9]+",message = "Only numbers allowed.")
@@ -36,7 +39,6 @@ public class Author {
 	
 	
 	@ManyToMany(mappedBy="authors", cascade=CascadeType.ALL)
-	
 	private List<Book> books = new ArrayList<Book>();
 
 

@@ -20,7 +20,7 @@
       <a class="navbar-brand" href="#">AJM - Online Book Store</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="/onlineshoppingstore">Home</a></li>
       <li><a href="#">All Categories</a></li>
       <li><a href="#">Children's</a></li> 
       <li><a href="#">Teens</a></li> 

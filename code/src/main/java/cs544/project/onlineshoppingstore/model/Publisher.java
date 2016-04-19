@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.search.annotations.Field;
+import javax.persistence.CascadeType;
 
 @Entity
 public class Publisher {
@@ -21,6 +23,7 @@ public class Publisher {
 	
 	
 	@NotBlank(message = "Name can not be blank.")
+	@Field
 	private String name;
 	
 	@Email(message = "Invalid Email")

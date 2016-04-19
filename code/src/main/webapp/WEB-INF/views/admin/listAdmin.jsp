@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Book Collection | AJM-Online Book Store</title>
+<title>Admin List | AJM-Online Book Store</title>
 <style type="text/css">
 .navbar {
 	margin-bottom: 0px;
@@ -16,11 +16,11 @@
 <body>
 	<div class="container">
 		<div class="page-header ">
-			<h3>Books Collection</h3>
+			<h3>Admin List</h3>
 		</div>
 
 		<div>
-			<a href="admin/add" class="btn btn-primary"> Add Book</a>
+			<a href="admin/add" class="btn btn-primary"> Add Admin</a>
 		</div>
 
 		<br />

@@ -15,7 +15,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/Book/addBook.jsp" />
 
 	</definition>
-	
+
 
 	<definition name="Author/addAuthor" extends="DefaultTemplate">
 		<put-attribute name="body"
@@ -31,17 +31,17 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/Author/updateAuthor.jsp" />
 	</definition>
-	
+
 	<definition name="Book/updateBook" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/Book/updateBook.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/Book/updateBook.jsp" />
 	</definition>
-	
-	
+
+
 	<definition name="Publisher/updatePublisher" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/Publisher/updatePublisher.jsp" />
 	</definition>
-	
+
 	<definition name="Publisher/listPublisher" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/Publisher/listPublisher.jsp" />
@@ -52,13 +52,51 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/Publisher/addPublisher.jsp" />
 	</definition>
-	
+
 	<definition name="Account/login" extends="DefaultTemplate">
 
-	<put-attribute name="body"
-			value="/WEB-INF/views/Account/login.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/Account/login.jsp" />
 	</definition>
-	
+
+	<definition name="admin/listAdmin" extends="DefaultTemplate">
+
+		<put-attribute name="body" value="/WEB-INF/views/admin/listAdmin.jsp" />
+	</definition>
+	<definition name="admin/addAdmin" extends="DefaultTemplate">
+
+		<put-attribute name="body" value="/WEB-INF/views/admin/addAdmin.jsp" />
+	</definition>
+	<definition name="admin/updateAdmin" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/updateAdmin.jsp" />
+	</definition>
+	<definition name="customer/listCustomer" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/customer/listCustomer.jsp" />
+	</definition>
+	<definition name="customer/addCustomer" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/customer/addCustomer.jsp" />
+	</definition>
+	<definition name="customer/updateCustomer" extends="DefaultTemplate">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/customer/updateCustomer.jsp" />
+	</definition>
+
+	<definition name="Search/browseBook" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Search/browseBook.jsp" />
+	</definition>
+
+
+	<definition name="Search/detailsBook" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Search/detailsBook.jsp" />
+	</definition>
 
 
 </tiles-definitions>
