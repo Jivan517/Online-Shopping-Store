@@ -1,5 +1,6 @@
 package cs544.project.onlineshoppingstore.service;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +36,14 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public void create(Admin admin) {
+		admin.setRoles(Arrays.asList("ROLE_ADMIN"));
+		
 		adminDao.save(admin);
 	}
 
 	@Override
 	public void update(long id, Admin updatedAdmin) {
+		
 		adminDao.save(updatedAdmin);
 	}
 
