@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:context="http://www.springframework.org/schema/context" 
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:task="http://www.springframework.org.schema/task"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/tx
@@ -14,13 +15,23 @@
     http://www.springframework.org/schema/data/repository
     http://www.springframework.org/schema/data/repository/spring-repository.xsd
     http://www.springframework.org/schema/data/jpa
-    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+    http://www.springramework.org/shema/task
+     http://www.springframework.org/schema/task/spring-task-4.0.xsd">
 
+	<!--  scheduleer related tasks -->
+<!-- 	<bean id="myclass" class="cs544.project.onlineshoppingstore.utils.CheckInventory" /> -->
+<!-- 	<task:annotation-driven scheduler="myschedule"/> -->
+<!-- 	<task:scheduler id="myschedule" pool-size="10" /> -->
+	
+	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<context:property-placeholder location="classpath:local.properties" />
 <!-- 	<context:property-placeholder location="classpath:messages.properties" /> -->
 	<context:annotation-config />
+	
 	<jpa:repositories base-package="cs544.project.onlineshoppingstore.dao"></jpa:repositories>
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.service"></context:component-scan>
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.utils"></context:component-scan>
@@ -62,6 +73,22 @@
 		</property>
 		<property name="packagesToScan" value="cs544.project.onlineshoppingstore.model" />
 	</bean>
+	
+	 <!-- SET default mail properties -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com"/>
+        <property name="port" value="25"/>
+        <property name="username" value="miki.teshome@gmail.com"/>
+        <property name="password" value="*enter ur passowrd here*"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">

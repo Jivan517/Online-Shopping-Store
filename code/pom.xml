@@ -10,7 +10,7 @@
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>4.1.6.RELEASE</org.springframework-version>
-		<org.aspectj-version>1.6.10</org.aspectj-version>
+		<org.aspectj-version>1.8.5</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<jquery-version>2.2.3</jquery-version>
 		<bootstrap-version>3.3.6</bootstrap-version>
@@ -20,6 +20,20 @@
 		<org.hibernate-version>5.1.0.Final</org.hibernate-version>
 	</properties>
 	<dependencies>
+		<!--  dependency for mailing service on scheduler -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>4.2.5.RELEASE</version>
+		</dependency>
+		
+		
+		
 		<!-- start: hibernate dependencies -->
 
 		<dependency>
@@ -172,6 +186,12 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>
+		
+		<dependency>
+			 <groupId>org.aspectj</groupId>
+			 <artifactId>aspectjweaver</artifactId>
+			 <version>${org.aspectj-version}</version>
+		 </dependency>
 
 		<!-- end: AspectJ dependencies -->
 
