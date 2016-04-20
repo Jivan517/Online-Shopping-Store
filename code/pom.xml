@@ -20,6 +20,13 @@
 		<org.hibernate-version>5.1.0.Final</org.hibernate-version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+		</dependency>
+
 		<!-- start: hibernate dependencies -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -259,7 +266,25 @@
 			<version>${junit-version}</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.2.5.RELEASE</version>
+		</dependency>
+
 		<!-- end: Unit testing dependencies -->
+		
+		<dependency>
+        	<groupId>org.aspectj</groupId>
+        	<artifactId>aspectjrt</artifactId>
+        	<version>1.8.5</version>
+        </dependency>
+         <dependency>
+        	<groupId>org.aspectj</groupId>
+        	<artifactId>aspectjweaver</artifactId>
+        	<version>1.8.5</version>
+        </dependency>
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>

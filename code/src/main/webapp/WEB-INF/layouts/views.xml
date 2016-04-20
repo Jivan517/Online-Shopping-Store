@@ -106,6 +106,21 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/order/orderHistory.jsp" />
 	</definition>
+	
+	<definition name="exception/error404" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/exception/error404.jsp" />
+	</definition>
+	
+	<definition name="exception/error400" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/exception/error400.jsp" />
+	</definition>
+	
+	<definition name="exception/error500" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/exception/error500.jsp" />
+	</definition>
 
 
 </tiles-definitions>
