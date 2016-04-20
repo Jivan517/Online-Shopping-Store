@@ -8,23 +8,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Search Book | AJM-Online Book Store</title>
+<title>View Book| AJM-Online Book Store</title>
 </head>
 <body>
 
 	<div class="container">
-		<div class="page-header ">
-			<h3>Search Results</h3>
+		<div class="page-header">
+			<h3> ${category} Books </h3>
 		</div>
 		<br />
-		<div class="alert alert-success alert-dismissible" role="alert">
-			<button type="button" class="close" data-dismiss="alert"
-				aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-			<strong>${totalCount}</strong> result(s) found.
-		</div>
-
+		
 		<br />
 		<c:forEach var="book" items="${books}" varStatus="rowCounter">
 			<c:if test="${rowCounter.count % 3 == 1}">

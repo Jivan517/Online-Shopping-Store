@@ -35,10 +35,13 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Indexed
 public class Book {
 
+	@JsonIgnore
 	@Id
 	@GeneratedValue
 	private long id;
@@ -71,8 +74,10 @@ public class Book {
 	@NotBlank(message = "Dimensions can not be blank")
 	private String dimension;
 
+	@JsonIgnore
 	private transient MultipartFile cover;
 
+	@JsonIgnore
 	@Lob
 	@Column(name = "cover")
 	private byte[] bookCover;
@@ -106,9 +111,11 @@ public class Book {
 
 	private transient long publisherId;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "book")
 	private List<Review> reviews = new ArrayList<Review>();
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "book")
 	private List<Orderline> orderlines;
 

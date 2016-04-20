@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -15,9 +16,12 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Author {
 	
+	@JsonIgnore
 	@Id @GeneratedValue
 	private long id;
 	
@@ -37,7 +41,7 @@ public class Author {
 	@Size(min=4,max=10)
 	private String phone;
 	
-	
+	@JsonIgnore
 	@ManyToMany(mappedBy="authors", cascade=CascadeType.ALL)
 	private List<Book> books = new ArrayList<Book>();
 
