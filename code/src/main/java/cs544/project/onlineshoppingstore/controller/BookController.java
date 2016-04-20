@@ -14,10 +14,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cs544.project.onlineshoppingstore.model.Book;
@@ -126,6 +128,25 @@ public class BookController {
 		return "redirect:/books";
 	}
 
+	
+	//REST API
+	
+	@ExceptionHandler(IllegalArgumentException.class)
+	@RequestMapping(value = {"/api/books/{id}"}, method = RequestMethod.GET)
+	public @ResponseBody Book getBook(@PathVariable long id){
+	
+		try {
+			return bookService.get(id);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Illegal Argument");
+		}
+	}
+	
+	@RequestMapping(value = {"/api/books"}, method = RequestMethod.GET)
+	public @ResponseBody List<Book> getAllBooks(){
+		
+		return bookService.getAll();
+	}
 	
 	
 }

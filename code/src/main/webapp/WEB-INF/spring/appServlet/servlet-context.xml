@@ -29,7 +29,16 @@
 		</beans:property>
 	</beans:bean>
 	
+	<beans:bean class = "org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<beans:property name="messageConverters">
+			<beans:list>
+				<beans:ref bean = "jsonMessageConverter"/>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
 	
+	<beans:bean id = "jsonMessageConverter" class = "org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	</beans:bean>
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.controller" />
 	<default-servlet-handler/>
 	
