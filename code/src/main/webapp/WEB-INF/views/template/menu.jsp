@@ -57,7 +57,7 @@
 			</sec:authorize>
 
 			<sec:authorize access="isAnonymous()">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+				<li><a href="${pageContext.request.contextPath}/customer/add"><span class="glyphicon glyphicon-user"></span>
 						Sign Up</a></li>
 				<li><a href="${pageContext.request.contextPath}/login"><span
 						class="glyphicon glyphicon-log-in"></span> Login</a></li>

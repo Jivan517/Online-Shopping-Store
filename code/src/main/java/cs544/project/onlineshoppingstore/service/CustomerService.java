@@ -14,4 +14,5 @@ public interface CustomerService {
 	
 	List<Customer> findByName(String name);
 	List<Customer> findByEmail(String email);
+	Customer findByUsername(String username);
 }
