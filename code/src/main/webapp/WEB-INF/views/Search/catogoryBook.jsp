@@ -14,7 +14,7 @@
 
 	<div class="container">
 		<div class="page-header">
-			<h3> ${category} </h3>
+			<h3> ${category} Books </h3>
 		</div>
 		<br />
 		

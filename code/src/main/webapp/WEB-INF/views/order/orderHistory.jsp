@@ -30,6 +30,7 @@
 					<tr>
 						<th>Books</th>
 						<th>Total Cost</th>
+						<th>Order Date</th>
 						<th>Delivery Date</th>
 						<th>Status</th>
 					</tr>
@@ -38,7 +39,8 @@
 				<c:forEach var="order" items="${orders}">
 					<tr>
 						<td>${order.orderLinesDetail}</td>
-						<td>$ ${order.total}</td>
+						<td>${order.total}</td>
+						<td>${order.orderDate}</td>
 						<td><fmt:formatDate value="${order.delivaryDate}" var="formattedDate" 
                 type="date" pattern="MMM-dd-yyyy" /> ${formattedDate}</td>
                 

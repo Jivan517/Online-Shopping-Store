@@ -51,7 +51,7 @@
 				<sec:authorize access="hasRole('ROLE_USER')">
 					<%-- 	           <li><a href="#"><font color="yellow"> <sec:authentication property="principal.username" /></font></a></li> --%>
 					<li><a href="${pageContext.request.contextPath}/order/orderhistory"><font color="yellow"> <sec:authentication
-									property="principal.username" /> | Write Review
+									property="principal.username" /> | Order History
 						</font></a></li>
 				</sec:authorize>
 			</sec:authorize>
