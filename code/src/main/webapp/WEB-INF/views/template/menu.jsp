@@ -11,10 +11,10 @@
 				Book Store</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li><a href="#">Children's</a></li>
-			<li><a href="#">Literature & Fiction</a></li>
-			<li><a href="#">Mystery & Thriller</a></li>
-			<li><a href="#">Sci-Fi & Fantasy</a></li>
+			<li><a href="${pageContext.request.contextPath}/books/category/children">Children's</a></li>
+			<li><a href="${pageContext.request.contextPath}/books/category/literature">Literature & Fiction</a></li>
+			<li><a href="${pageContext.request.contextPath}/books/category/mystery">Mystery & Thriller</a></li>
+			<li><a href="${pageContext.request.contextPath}/books/category/sciFi">Sci-Fi & Fantasy</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><form action="shoppingcart" method="get" style="margin-top:5px;;margin-right:5px;">
@@ -50,7 +50,7 @@
 			<sec:authorize access="isAuthenticated()">
 				<sec:authorize access="hasRole('ROLE_USER')">
 					<%-- 	           <li><a href="#"><font color="yellow"> <sec:authentication property="principal.username" /></font></a></li> --%>
-					<li><a href="#"><font color="yellow"> <sec:authentication
+					<li><a href="${pageContext.request.contextPath}/order/orderhistory"><font color="yellow"> <sec:authentication
 									property="principal.username" /> | Write Review
 						</font></a></li>
 				</sec:authorize>

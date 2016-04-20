@@ -3,6 +3,8 @@ package cs544.project.onlineshoppingstore.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,15 +26,16 @@ public class OrderController {
 	private CustomerService customerService;
 
 	
-	@RequestMapping(value = "/order/orderhistory/{id}", method = RequestMethod.GET)
-	public String viewOrderHistory(@PathVariable int id, Model model){
+	@RequestMapping(value = "/order/orderhistory", method = RequestMethod.GET)
+	public String viewOrderHistory( Model model){
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String username = authentication.getName();
+		long id = customerService.findByUsername(username).getId();
 		
 		Customer customer = customerService.get(id);
 		List<Order> orders = customer.getOrder();
-		for(Order o : orders){
-			System.out.println(o.getDelivaryDate());
-			o.getCustomer().getName();
-		}
+	
 		model.addAttribute("orders", orders);
 	
 		return "order/orderHistory";

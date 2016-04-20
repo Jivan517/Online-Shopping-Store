@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -128,6 +129,17 @@ public class BookController {
 		return "redirect:/books";
 	}
 
+	@RequestMapping(value = { "/books/category/{categoryName}" }, method = RequestMethod.GET)
+	public String childrenCatagory(@PathVariable String categoryName, Model model) {
+		
+		List<Book> books = bookService.findBybookCategory(BookCategory.valueOf(categoryName.toUpperCase()));
+	
+		model.addAttribute("category",StringUtils.capitalize(categoryName));
+		model.addAttribute("books", books);
+		return "Search/catogoryBook";
+
+	}
+	
 	
 	//REST API
 	

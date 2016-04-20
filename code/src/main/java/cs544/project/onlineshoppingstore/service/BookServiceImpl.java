@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cs544.project.onlineshoppingstore.dao.BookDao;
 import cs544.project.onlineshoppingstore.model.Book;
+import cs544.project.onlineshoppingstore.model.BookCategory;
 import cs544.project.onlineshoppingstore.utils.IdToEntityConvertor;
 
 @Transactional(propagation = Propagation.REQUIRED)
@@ -106,6 +107,11 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public List<Book> findByFullTextSearch(String searchText) {
 		return bookDao.findByFullTextSearch(searchText);
+	}
+	
+	@Override
+	public List<Book> findBybookCategory(BookCategory category) {
+		return bookDao.findBybookCategory(category);
 	}
 
 	@Override
