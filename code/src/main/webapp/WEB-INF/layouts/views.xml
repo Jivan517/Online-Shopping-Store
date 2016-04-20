@@ -96,6 +96,11 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/Search/detailsBook.jsp" />
 	</definition>
+	
+	<definition name="Search/catogoryBook" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/Search/catogoryBook.jsp" />
+	</definition>
 
 	<definition name="Search/shoppingCart" extends="DefaultTemplate">
 		<put-attribute name="body"

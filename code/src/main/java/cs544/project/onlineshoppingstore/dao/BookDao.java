@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import cs544.project.onlineshoppingstore.model.Book;
+import cs544.project.onlineshoppingstore.model.BookCategory;
 
 public interface BookDao extends JpaRepository<Book,Long>, BookDaoCustom{
 	
@@ -16,11 +17,11 @@ public interface BookDao extends JpaRepository<Book,Long>, BookDaoCustom{
 	
 	List<Book> findFirst10ByOrderByPriceAsc();
 	
-	/*List<Book> findByCategory(String category);
+	List<Book> findBybookCategory(BookCategory category);
 	
-	List<Book> findByPublisher(String publisher);
+	//List<Book> findByPublisher(String publisher);
 	
-	List<Book> findByRating(String rating);*/
+	//List<Book> findByRating(String rating);*/
 	
 	
 

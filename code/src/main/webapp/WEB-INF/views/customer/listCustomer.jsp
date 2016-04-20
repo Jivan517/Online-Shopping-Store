@@ -39,11 +39,11 @@
 						<td>${customer.email}</td>
 						<td>
 							<form action="customer/update/${customer.id}" method="get">
-								<button>Update</button>
+								<button class="btn btn-info">Update</button>
 							</form>
 						</td>
 						<td><form action="customer/delete/${customer.id}" method="post">
-								<button type="submit">Delete</button>
+								<button type="submit" class="btn btn-danger">Delete</button>
 							</form></td>
 					</tr>
 				</c:forEach>
