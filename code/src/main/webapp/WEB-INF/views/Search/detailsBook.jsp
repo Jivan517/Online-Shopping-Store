@@ -113,6 +113,19 @@
 		</div>
 		<!-- /.modal -->
 
+
+	<div class ="row">
+		<div class = "col-md-12">
+		
+		
+<!-- 		<h3>Review</h3> -->
+<!-- 		<textarea type="text" size="250" maxlength="100" height="20"> -->
+		
+		</div>
+	
+	</div>
+
+
 	</div>
 	<br />
 	<br />

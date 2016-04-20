@@ -32,7 +32,7 @@ public class Order {
 	@NotNull(message = "Total Quantity cannot be blank.")
 	private int totalQuantity;
 	
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order",fetch = FetchType.EAGER)
 	private List<Orderline> orderlines = new ArrayList<>();
 	
 	
@@ -120,6 +120,13 @@ public class Order {
 		this.customer = customer;
 	}
 	
-	
+	public String getOrderLinesDetail(){
+		String orderlines = "";
+		for(Orderline ol: this.orderlines){
+			orderlines += ol.getBook().getTitle() + " <b> BY </b> " + ol.getBook().getAuthorName()  + " ";
+		}
+		
+		return orderlines;
+	}
 	
 }

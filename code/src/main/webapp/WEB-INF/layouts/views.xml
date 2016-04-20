@@ -16,7 +16,6 @@
 
 	</definition>
 
-
 	<definition name="Author/addAuthor" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/Author/addAuthor.jsp" />
@@ -97,10 +96,16 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/Search/detailsBook.jsp" />
 	</definition>
-	
+
 	<definition name="Search/shoppingCart" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/Search/shoppingCart.jsp" />
 	</definition>
+
+	<definition name="order/orderHistory" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/order/orderHistory.jsp" />
+	</definition>
+
 
 </tiles-definitions>

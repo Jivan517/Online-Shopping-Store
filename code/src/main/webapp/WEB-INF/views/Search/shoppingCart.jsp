@@ -2,6 +2,9 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import="java.io.*,java.util.*, javax.servlet.*" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,6 +41,47 @@
 			
 
 		});
+		
+		$("#checkoutBtn").click(function(event) {
+			
+			var bookIds = [];
+			var quantities = [];
+			
+			
+			$('.bookQuantity').each(function(i, obj) {
+				var quantity = $(this).val();
+				var id =  $(this).attr('id');
+				var idVal = id.replace("quantityId", "");
+				bookIds.push(idVal);
+				quantities.push(quantity);
+				
+				
+				
+			});
+			
+			console.log(bookIds);
+			console.log(quantities);
+			
+	    	var json = {bookIds:bookIds, quantities:quantities};
+			
+	        $.ajax({
+	            url: "${home}checkout?bookIds="+bookIds+"&quantities="+quantities,
+	            type: "POST",
+	            //data : JSON.stringify(json),
+	            dataType : 'json',
+	            //contentType : 'application/json',   
+	             
+	            success: function(val) {
+	            	console.log("success");
+	              },
+	            error: function(err){
+	            	console.log("error");
+	            	console.log(err);
+	            }
+	        });
+	   
+	        event.preventDefault();
+	    });
 	});
 </script>
 
@@ -112,14 +156,15 @@
 		</c:if>
 
 		<c:if test="${fn:length(books) gt 0}">
-
+		
+		
 			<div class="row">
 				<div class="col-md-4"></div>
 				<div class="col-sm-6 col-md-4 jumbotron">
 					<div class="thumbnail">
 						<div class="caption">
 
-
+							
 							<p>
 								<b>Order Subtotal: </b>$<label id="subTotal"> ${totalCost }</label>
 							</p>
@@ -132,9 +177,31 @@
 								<b>Order Total: </b>$<label id="totalPrice"> ${totalCost }</label>
 							</p>
 							<p>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-									href="#" class="btn btn-primary" role="button">Checkout</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a  class="btn btn-primary" role="button" id = "checkoutBtn">Checkout</a>
 							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 jumbotron">
+					<div class="thumbnail">
+						<div class="caption">
+
+							
+							<p>
+								<b>Shipping Type : </b> ${shippingType }</label>
+							</p>
+							<p>
+								<b>Shipping Address: </b> <small>${shippingAddress }</small>
+							</p>
+							
+							<p>
+								<b>Delivery Date: </b> ${deliveryDate }
+							</p>
+							<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</p>
+
 						</div>
 					</div>
 				</div>

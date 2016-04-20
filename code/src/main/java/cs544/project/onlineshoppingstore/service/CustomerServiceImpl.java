@@ -108,4 +108,9 @@ public class CustomerServiceImpl implements CustomerService{
 		return customerDao.findByEmail(email);
 	}
 
+	@Override
+	public Customer findByUsername(String username) {
+		return customerDao.findByUsername(username);
+	}
+
 }

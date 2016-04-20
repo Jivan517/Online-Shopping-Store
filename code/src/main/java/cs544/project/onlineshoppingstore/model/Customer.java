@@ -3,6 +3,7 @@ package cs544.project.onlineshoppingstore.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -21,7 +22,7 @@ public class Customer extends ACLUser{
 	@OneToOne(mappedBy="customer")
 	private BilingAddress bilingAddress;
 	
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="customer", fetch = FetchType.EAGER)
 	private List<Order> order;
 	
 	@Email(message = "Invalid email format.")
