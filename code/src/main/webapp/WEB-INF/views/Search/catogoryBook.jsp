@@ -25,7 +25,7 @@
 			</c:if>
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
-					<a href="details?i=${book.id }"> <c:choose>
+					<a href="${pageContext.request.contextPath}/details?i=${book.id }"> <c:choose>
 							<c:when test="${empty book.url}">
 								<img id="bookCover" src="${pageContext.request.contextPath}/resources/img/samplecover.jpg"
 									alt="${book.title }" class="img-rounded"></img>
@@ -43,7 +43,7 @@
 					</a>
 					<div class="caption">
 						<h5>
-							<a href="details?i=${book.id }"><b>${book.title }</b></a>
+							<a href="${pageContext.request.contextPath}/details?i=${book.id }"><b>${book.title }</b></a>
 						</h5>
 						<p class = "text-primary">${book.authorName }</p>
 
