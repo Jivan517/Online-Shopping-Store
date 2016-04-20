@@ -84,6 +84,7 @@ public class PaymentController {
 	
 	@RequestMapping(value={"/checkout"}, method = RequestMethod.POST)
 	public String checkout(Model model, @RequestParam List<Integer> bookIds, @RequestParam List<Integer> quantities){
+		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String username = authentication.getName();
 		Customer customer = customerService.findByUsername(username);
@@ -111,12 +112,11 @@ public class PaymentController {
 		order.setOrderlines(orderLine);		
 		order.setTotal(total_amt);
 		order.setTotalQuantity(total_qty);
-		order.setOrderStatus(OrderStatus.DELIVERED);		
+		order.setOrderStatus(OrderStatus.NEW);		
 		orderService.create(order);
-		//System.out.println(bookIds);
-		//System.out.println(quantities);
 		
-		return "redirect:/shoppingcart";
+		return "Search/shoppingCart";
+		//return "redirect:/shoppingcart";
 	}
 	
 	

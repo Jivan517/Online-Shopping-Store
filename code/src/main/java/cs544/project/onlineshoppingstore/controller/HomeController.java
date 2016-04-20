@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cs544.project.onlineshoppingstore.model.Book;
 import cs544.project.onlineshoppingstore.service.BookService;
+import cs544.project.onlineshoppingstore.utils.CheckInventory;
 
 /**
  * Handles requests for the application home page.
@@ -27,6 +28,8 @@ public class HomeController {
 	
 	@Autowired
 	private BookService bookService;
+	@Autowired
+	private CheckInventory checkInventory;
 	
 	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {

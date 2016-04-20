@@ -32,7 +32,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public void update(long id, Order updatedOrder) {
-		
+		updatedOrder.setId(id);
 		orderDao.save(updatedOrder);
 		
 	}
