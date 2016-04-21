@@ -35,7 +35,7 @@ public class OrderController {
 		
 		Customer customer = customerService.get(id);
 		List<Order> orders = customer.getOrder();
-	
+	    System.out.println("Number of orders " + orders.size());
 		model.addAttribute("orders", orders);
 	
 		return "order/orderHistory";

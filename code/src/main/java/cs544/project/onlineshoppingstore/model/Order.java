@@ -40,11 +40,9 @@ public class Order {
 	@JoinColumn(name = "customerId")
 	private Customer customer;
 
-
 	public long getId() {
 		return id;
 	}
-
 
 	public void setId(long id) {
 		this.id = id;
@@ -120,12 +118,12 @@ public class Order {
 		this.customer = customer;
 	}
 	
+	
 	public String getOrderLinesDetail(){
 		String orderlines = "";
-		for(Orderline ol: this.orderlines){
+	for(Orderline ol: this.orderlines){
 			orderlines += ol.getBook().getTitle() + " <b> BY </b> " + ol.getBook().getAuthorName()  + " ";
 		}
-		
 		return orderlines;
 	}
 	
