@@ -80,7 +80,7 @@ public class BookController {
 	@RequestMapping(value = "/books/add", method = RequestMethod.POST)
 	public String add(@Valid Book book, BindingResult result, Model model) {
 
-		System.out.println(book.getTitle());
+		System.out.println("has error? " + result.hasErrors());
 		if (result.hasErrors()) {
 			model.addAttribute("bookTypes", Arrays.asList(BookType.values()));
 			model.addAttribute("bookCategories", Arrays.asList(BookCategory.values()));

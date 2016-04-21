@@ -22,6 +22,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DateBridge;
@@ -31,6 +32,7 @@ import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Resolution;
 import org.hibernate.search.annotations.Store;
+import org.hibernate.validator.constraints.EAN;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,6 +50,7 @@ public class Book {
 
 	@NotBlank(message = "ISBN can not be blank")
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	@Pattern(regexp = "(\\d){13}|(\\d){10}", message = "The ISBN is not valid - should have 10 or 13 digits")
 	private String isbn;
 
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
