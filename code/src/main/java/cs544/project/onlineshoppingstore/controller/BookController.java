@@ -1,6 +1,7 @@
 package cs544.project.onlineshoppingstore.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -133,6 +134,9 @@ public class BookController {
 	public String childrenCatagory(@PathVariable String categoryName, Model model) {
 		
 		List<Book> books = bookService.findBybookCategory(BookCategory.valueOf(categoryName.toUpperCase()));
+		if(categoryName.contains("literature")){
+			books.addAll(bookService.findBybookCategory(BookCategory.FICTION));
+		}
 	
 		model.addAttribute("category",StringUtils.capitalize(categoryName));
 		model.addAttribute("books", books);
