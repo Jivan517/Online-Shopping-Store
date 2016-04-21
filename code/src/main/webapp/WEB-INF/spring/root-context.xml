@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:context="http://www.springframework.org/schema/context" 
-	xmlns:mvc="http://www.springframework.org/schema/mvc" 
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-	xmlns:task="http://www.springframework.org.schema/task"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:task="http://www.springframework.org.schema/task" xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/tx
@@ -24,19 +21,20 @@
     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<aop:aspectj-autoproxy />
-	<mvc:annotation-driven />
+	<mvc:annotation-driven validator="validator" />
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	
+
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<context:property-placeholder location="classpath:local.properties" />
 	<context:annotation-config />
-	
+
 	<jpa:repositories base-package="cs544.project.onlineshoppingstore.dao"></jpa:repositories>
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.service"></context:component-scan>
 	<context:component-scan base-package="cs544.project.onlineshoppingstore.utils"></context:component-scan>
 	<!-- <mvc:default-servlet-handler/> -->
 
-
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
 
 	<bean id="webexpressionHandler"
@@ -77,22 +75,22 @@
 		</property>
 		<property name="packagesToScan" value="cs544.project.onlineshoppingstore.model" />
 	</bean>
-	
-	 <!-- SET default mail properties -->
-    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="smtp.gmail.com"/>
-        <property name="port" value="25"/>
-        <property name="username" value="miki.teshome@gmail.com"/>
-        <property name="password" value="*enter ur passowrd here*"/>
-        <property name="javaMailProperties">
-            <props>
-                <prop key="mail.transport.protocol">smtp</prop>
-                <prop key="mail.smtp.auth">true</prop>
-                <prop key="mail.smtp.starttls.enable">true</prop>
-                <prop key="mail.debug">true</prop>
-            </props>
-        </property>
-    </bean>
+
+	<!-- SET default mail properties -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="25" />
+		<property name="username" value="miki.teshome@gmail.com" />
+		<property name="password" value="*enter ur passowrd here*" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">

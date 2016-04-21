@@ -26,11 +26,14 @@ public class IdToEntityConvertor {
 	public List<Author> getAuthorListFromIdList(List<Long> idList) {
 
 		List<Author> authors = new ArrayList<>();
-		for (Long id : idList) {
-			authors.add(authorDao.findOne(id));
+		if (idList != null && idList.size() > 0) {
+			for (Long id : idList) {
+				authors.add(authorDao.findOne(id));
+			}
 		}
 
 		return authors;
+
 	}
 
 	public List<Publisher> getPublisherListFromIdList(List<Long> idList) {
@@ -42,19 +45,18 @@ public class IdToEntityConvertor {
 
 		return publishers;
 	}
-	
-	public Publisher getPublisherFromId(Long id){
+
+	public Publisher getPublisherFromId(Long id) {
 		return publisherDao.findOne(id);
 	}
-	
-	public List<Long> getIdListFromAuthorList(List<Author> authors){
-		
+
+	public List<Long> getIdListFromAuthorList(List<Author> authors) {
+
 		List<Long> ids = new ArrayList<>();
-		
-		for(Author a: authors)
+
+		for (Author a : authors)
 			ids.add(a.getId());
 		return ids;
 	}
-	
-	
+
 }
