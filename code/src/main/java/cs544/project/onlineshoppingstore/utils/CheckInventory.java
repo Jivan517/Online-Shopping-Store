@@ -37,7 +37,7 @@ public class CheckInventory {
 		//updateEmployeeInventory();
 	}
 	//@Scheduled(fixedRate=1000)
-	@Scheduled(cron="0/10 * * * * *")
+	@Scheduled(cron="0/50 * * * * *")
     public void checkInventoryForNewOrders(){
         
 		System.out.println("checking new orders");

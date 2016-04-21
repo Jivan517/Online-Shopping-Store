@@ -16,10 +16,20 @@
 		<intercept-url pattern="/login.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		
 		<intercept-url pattern="/author/" access="ROLE_ADMIN" />
+		<intercept-url pattern="/author**" access="ROLE_ADMIN" />
+		
 		<intercept-url pattern="/publisher/" access="ROLE_ADMIN" />
-<!-- 		<intercept-url pattern="/publisher**" access="ROLE_USER" /> -->
-<!-- 		<intercept-url pattern="/author**" access="ROLE_USER" /> -->
-<!-- 		<intercept-url pattern="/author**" access="ROLE_USER" /> -->
+		<intercept-url pattern="/publisher**" access="ROLE_ADMIN" />
+		
+		<intercept-url pattern="/admin**" access="ROLE_ADMIN" />
+		<intercept-url pattern="/admin/" access="ROLE_ADMIN" />
+		
+		<intercept-url pattern="/book**" access="ROLE_ADMIN" />
+		<intercept-url pattern="/book/" access="ROLE_ADMIN" />
+		
+		<intercept-url pattern="/customer**" access="ROLE_ADMIN" />
+		<intercept-url pattern="/customer/" access="ROLE_ADMIN" />
+		
 		<form-login login-processing-url="/j_spring_security_check"
 			login-page="/login" default-target-url="/"
 			authentication-failure-url="/loginfailed" username-parameter="username"
