@@ -17,7 +17,7 @@
 			<li><a href="${pageContext.request.contextPath}/books/category/sciFi">Sci-Fi & Fantasy</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><form action="shoppingcart" method="get"
+			<li><form action="${pageContext.request.contextPath}/shoppingcart" method="get"
 					style="margin-top: 5px;; margin-right: 5px;">
 					<button class="btn btn-info">
 						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>

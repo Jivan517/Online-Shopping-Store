@@ -10,7 +10,7 @@
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css"/>" type="text/css"/>
-<link href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="${pageContext.request.contextPath}/favicon.ico" rel="icon" type="image/x-icon" />
 <style>
 
 @media screen and (min-width: 768px){

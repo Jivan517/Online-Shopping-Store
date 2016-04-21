@@ -17,19 +17,19 @@ public class LogTraceAdvice {
 	private Logger logger = Logger.getLogger(getClass());
 	
 	
-	@Before("execution(public * cs544.project.onlineshoppingstore.controller.*(..))")
+	@Before("execution(public * cs544.project.onlineshoppingstore.controller.*.*(..))")
 	public void beforeTrace(JoinPoint point){
 		
 		logger.log(Level.INFO, "requesting " + point.getSignature().getName());
 	}
 	
-	@After("execution(public * cs544.project.onlineshoppingstore.controller.*(..))")
+	@After("execution(public * cs544.project.onlineshoppingstore.controller.*.*(..))")
 	public void afterTrace(JoinPoint point){
 		
 		logger.log(Level.INFO, "exiting " + point.getSignature().getName());
 	}
 	
-	@AfterThrowing(pointcut = "execution(public * cs544.project.onlineshoppingstore.controller.*(..))", throwing = "exception")
+	@AfterThrowing(pointcut = "execution(public * cs544.project.onlineshoppingstore.controller.*.*(..))", throwing = "exception")
 	public void beforeTrace(JoinPoint point, CustomException exception){
 		
 		logger.log(Level.INFO, "An exception occured while executing " + point.getSignature().getName());

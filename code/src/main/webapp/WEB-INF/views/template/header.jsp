@@ -3,7 +3,7 @@
 	<div class="col-md-1"></div>
 	<div class="col-md-3">
 	<div class ="col-md-1"></div>
-		<a href="http://localhost:8080/onlineshoppingstore"><img src="http://localhost:8080/onlineshoppingstore/resources/img/logo.jpg" width="100%" height="100px" /></a>
+		<a href="http://localhost:8080/onlineshoppingstore"><img src="${pageContext.request.contextPath}/resources/img/logo.jpg" width="100%" height="100px" /></a>
 	</div>
 	
 	<div class="col-md-6 col-xs-5 col-md-6 col-lg-6"><form action="home/search" method="post">

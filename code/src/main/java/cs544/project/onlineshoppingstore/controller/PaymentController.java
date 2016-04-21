@@ -43,10 +43,6 @@ public class PaymentController {
 	@Autowired
 	private CustomerService customerService;
 	
-	
-	
-	
-	
 	@RequestMapping(value = { "/shoppingcart" }, method = RequestMethod.GET)
 	public String shoppingCart(Model model) {
 
@@ -95,8 +91,6 @@ public class PaymentController {
 		double total_amt = 0;
 		int total_qty = 0;
 		
-		
-		
 		int size = bookIds.size();
 		for(int i = 0; i < size; i++){
 			Orderline ol = new Orderline();
@@ -116,8 +110,7 @@ public class PaymentController {
 		order.setOrderStatus(OrderStatus.NEW);		
 		orderService.create(order);
 		
-		//return "Search/shoppingCart";
-		return "redirect:/order/orderhistory";
+		return "redirect:/shoppingcart/clear";
 		
 	}
 	
@@ -137,9 +130,11 @@ public class PaymentController {
 		return "redirect:/shoppingcart";
 	}
 	
-	
-	public void clear(SessionStatus session){
+	@RequestMapping("/shoppingcart/clear")
+	public String clear(SessionStatus session){
 
 		session.setComplete();
+		System.out.println("cleared session for cart");
+		return "redirect:/order/orderhistory";
 	}
 }

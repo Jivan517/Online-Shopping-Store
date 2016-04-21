@@ -130,10 +130,12 @@ public class BookController {
 		return "redirect:/books";
 	}
 
-	@RequestMapping(value = { "/books/category/{categoryName}" }, method = RequestMethod.GET)
-	public String childrenCatagory(@PathVariable String categoryName, Model model) {
+	@RequestMapping(value = { "/books/category/{cn}" }, method = RequestMethod.GET)
+	public String childrenCatagory(@PathVariable("cn") String categoryName, Model model) {
 		
-		List<Book> books = bookService.findBybookCategory(BookCategory.valueOf(categoryName.toUpperCase()));
+		List<Book> books = new ArrayList<>();
+		if(!categoryName.toLowerCase().equals("favicon"))
+			books = bookService.findBybookCategory(BookCategory.valueOf(categoryName.toUpperCase()));
 		if(categoryName.contains("literature")){
 			books.addAll(bookService.findBybookCategory(BookCategory.FICTION));
 		}

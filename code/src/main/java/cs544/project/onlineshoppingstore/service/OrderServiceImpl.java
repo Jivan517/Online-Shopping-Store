@@ -9,14 +9,19 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import cs544.project.onlineshoppingstore.dao.OrderDao;
+import cs544.project.onlineshoppingstore.dao.OrderlineDao;
 import cs544.project.onlineshoppingstore.model.Order;
 import cs544.project.onlineshoppingstore.model.OrderStatus;
+import cs544.project.onlineshoppingstore.model.Orderline;
 
 @Transactional(propagation = Propagation.REQUIRED)
 @Component
 public class OrderServiceImpl implements OrderService {
 
 	private OrderDao orderDao;
+	
+	@Autowired
+	private OrderlineDao orderlineDao;
 	
 	@Autowired
 	public void setOrderDao(OrderDao orderDao) {
@@ -26,8 +31,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public void create(Order order) {
 		
-		orderDao.save(order);
-		
+		Order o = orderDao.save(order);
+		for(Orderline ol: order.getOrderlines()){
+			ol.setOrder(o);
+			orderlineDao.save(ol);
+		}
 	}
 
 	@Override

@@ -73,10 +73,12 @@
 	             
 	            success: function(val) {
 	            	console.log("success");
+	            	window.location.href = "${home}order/orderhistory";
 	              },
 	            error: function(err){
 	            	console.log("error");
 	            	console.log(err);
+	            	window.location.href = "${home}order/orderhistory";
 	            }
 	        });
 	   
