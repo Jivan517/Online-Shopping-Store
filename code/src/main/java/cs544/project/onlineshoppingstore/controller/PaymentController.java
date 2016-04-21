@@ -80,6 +80,7 @@ public class PaymentController {
 		model.addAttribute("deliveryDate", sdf.format(c.getTime()));
 		
 		return "Search/shoppingCart";
+
 	}
 	
 	@RequestMapping(value={"/checkout"}, method = RequestMethod.POST)
@@ -115,8 +116,9 @@ public class PaymentController {
 		order.setOrderStatus(OrderStatus.NEW);		
 		orderService.create(order);
 		
-		return "Search/shoppingCart";
-		//return "redirect:/shoppingcart";
+		//return "Search/shoppingCart";
+		return "redirect:/order/orderhistory";
+		
 	}
 	
 	
@@ -135,22 +137,7 @@ public class PaymentController {
 		return "redirect:/shoppingcart";
 	}
 	
-	/*@RequestMapping(value={"/shoppingcart/checkout/"},method = RequestMethod.GET)
-	public String getCheckout(Model model){
-		//System.out.println("Total ordered quantity " + order.getTotalQuantity());
-		Order o = new Order();
-		model.addAttribute("order",o);
-		//orderService.create(order);
-		return "Search/shoppingCart";
-	}*/
 	
-//	@RequestMapping(value={"/shoppingcart/checkout/"},method = RequestMethod.POST)
-//	public String checkout(@Valid Order order){
-//		System.out.println("Total ordered quantity " + order.getTotalQuantity());
-//		orderService.create(order);
-//		return "";
-//	}
-//	
 	public void clear(SessionStatus session){
 
 		session.setComplete();
