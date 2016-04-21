@@ -17,22 +17,21 @@
 
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for= "name">Name</label>
-					<div class="col-lg-10">
-						<form:input id="name" path="name" type= "text" class="form:input-large" value = "${publisher.name}"/>
+					<div class="col-lg-4">
+						<form:input id="name" path="name" type= "text" class="form-control" value = "${publisher.name}"/>
 					</div>
 			</div>
 					
-
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for= "email">Email</label>
-					<div class="col-lg-10">
-						<form:input id="email" path="email" type= "text" class="form:input-large"  value = "${publisher.email}"/>
+					<div class="col-lg-4">
+						<form:input id="email" path="email" type= "text" class="form-control" value = "${publisher.email}"/>
 					</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for= "phone">Phone</label>
-					<div class="col-lg-10">
-						<form:input id="phone" path="phone" type= "text" class="form:input-large" value = "${publisher.phone}"/>
+					<div class="col-lg-4">
+						<form:input id="phone" path="phone" type= "text" class="form-control col-md-4" value = "${publisher.phone}"/>
 					</div>
 			</div>
 			<div class="form-group" action="${pageContext.request.contextPath}/publisher/update/${publisher.id}" method="post">
