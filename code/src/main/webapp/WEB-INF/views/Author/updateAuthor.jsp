@@ -22,28 +22,28 @@
 <!-- 			</div> -->
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for= "name">First Name</label>
-					<div class="col-lg-10">
-						<form:input id="firstName" path="firstName" type= "text" class="form:input-large" value = "${author.firstName}"/>
+					<div class="col-lg-4">
+						<form:input id="firstName" path="firstName" type= "text" class="form-control" value = "${author.firstName}"/>
 					</div>
 			</div>
 			
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for= "name">Last Name</label>
-					<div class="col-lg-10">
-						<form:input id="lastName" path="lastName" type= "text" class="form:input-large" value = "${author.lastName}"/>
+					<div class="col-lg-4">
+						<form:input id="lastName" path="lastName" type= "text" class="form-control" value = "${author.lastName}"/>
 					</div>
 			</div>
 
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for= "email">Email</label>
-					<div class="col-lg-10">
-						<form:input id="email" path="email" type= "text" class="form:input-large"  value = "${author.email}"/>
+					<div class="col-lg-4">
+						<form:input id="email" path="email" type= "text" class="form-control"  value = "${author.email}"/>
 					</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-lg-2 col-lg-2" for= "phone">Phone</label>
-					<div class="col-lg-10">
-						<form:input id="phone" path="phone" type= "text" class="form:input-large" value = "${author.phone}"/>
+					<div class="col-lg-4">
+						<form:input id="phone" path="phone" type= "text" class="form-control" value = "${author.phone}"/>
 					</div>
 			</div>
 			<div class="form-group" action="${pageContext.request.contextPath}/author/update/${author.id}" method="post">
